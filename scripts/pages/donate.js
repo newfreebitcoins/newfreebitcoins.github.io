@@ -9,8 +9,8 @@ import { wordlist } from "@scure/bip39/wordlists/english.js";
 import * as bitcoin from "bitcoinjs-lib";
 import QRCode from "qrcode";
 import {
-  getAppConfig,
   getDonationChallenge,
+  getRuntimeConfig,
   getTransactionStatus,
   getWalletActivity,
   getWalletBalance,
@@ -26,14 +26,19 @@ import {
   isLikelyAddressForNetwork
 } from "../consts.js";
 
-const STORAGE_KEY = "donationWallet";
+const STORAGE_KEY_PREFIX = "donationWallet";
+const LEGACY_STORAGE_KEY = STORAGE_KEY_PREFIX;
 const DUST_THRESHOLD = 546;
 const WALLET_AUTO_REFRESH_MS = 10000;
+const SEND_REFETCH_DELAY_MS = 1500;
+const GRAFFITI_MAX_LENGTH = 80;
+const DONATION_HEARTBEAT_CONTEXT = "new-free-bitcoins-donation-heartbeat";
 
 window.Buffer ??= Buffer;
 
 let appConfig = null;
 let pendingMnemonic = "";
+let pendingWalletMode = "create";
 let confirmationIndexes = [];
 let confirmationStep = "password";
 let unlockedWalletState = null;
@@ -47,6 +52,7 @@ let donationRuntimeState = {
 let walletActivityItems = [];
 let walletActivityPage = 1;
 let walletAutoRefreshIntervalId = null;
+let walletDataRefetchTimeoutId = null;
 
 const WALLET_ACTIVITY_PAGE_SIZE = 8;
 
@@ -106,8 +112,8 @@ function getCoinLabel() {
   return appConfig?.unitLabel ?? "BTC";
 }
 
-function getStoredWallet() {
-  const raw = window.localStorage.getItem(STORAGE_KEY);
+function readStoredWallet(key) {
+  const raw = window.localStorage.getItem(key);
 
   if (!raw) {
     return null;
@@ -120,8 +126,73 @@ function getStoredWallet() {
   }
 }
 
-function storeWallet(payload) {
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+function getCurrentNetwork() {
+  return appConfig?.network ?? "mainnet";
+}
+
+function getStorageKey(network = getCurrentNetwork()) {
+  return `${STORAGE_KEY_PREFIX}:${network}`;
+}
+
+function getStoredWalletForNetwork(network) {
+  return readStoredWallet(getStorageKey(network));
+}
+
+function getLegacyStoredWallet() {
+  return readStoredWallet(LEGACY_STORAGE_KEY);
+}
+
+function getStoredWallet() {
+  return getStoredWalletForNetwork(getCurrentNetwork());
+}
+
+function getUnlockSourceWalletInfo() {
+  const currentNetwork = getCurrentNetwork();
+  const currentWallet = getStoredWalletForNetwork(currentNetwork);
+
+  if (currentWallet) {
+    return {
+      wallet: currentWallet,
+      key: getStorageKey(currentNetwork),
+      isCurrentNetwork: true
+    };
+  }
+
+  const legacyWallet = getLegacyStoredWallet();
+
+  if (legacyWallet) {
+    return {
+      wallet: legacyWallet,
+      key: LEGACY_STORAGE_KEY,
+      isCurrentNetwork: legacyWallet.network === currentNetwork
+    };
+  }
+
+  for (const network of Object.keys(NETWORK_CONFIG)) {
+    if (network === currentNetwork) {
+      continue;
+    }
+
+    const wallet = getStoredWalletForNetwork(network);
+
+    if (wallet) {
+      return {
+        wallet,
+        key: getStorageKey(network),
+        isCurrentNetwork: false
+      };
+    }
+  }
+
+  return {
+    wallet: null,
+    key: "",
+    isCurrentNetwork: false
+  };
+}
+
+function storeWallet(payload, network = getCurrentNetwork()) {
+  window.localStorage.setItem(getStorageKey(network), JSON.stringify(payload));
 }
 
 function updateStoredWallet(patch) {
@@ -138,7 +209,11 @@ function updateStoredWallet(patch) {
 }
 
 function clearWallet() {
-  window.localStorage.removeItem(STORAGE_KEY);
+  window.localStorage.removeItem(LEGACY_STORAGE_KEY);
+
+  for (const network of Object.keys(NETWORK_CONFIG)) {
+    window.localStorage.removeItem(getStorageKey(network));
+  }
 }
 
 function setMessage(text, type = "") {
@@ -258,8 +333,11 @@ function deriveWallet(mnemonic) {
 }
 
 async function getChallengeHashBytes(challengeHex) {
-  const challengeBytes = Uint8Array.from(Buffer.from(challengeHex, "hex"));
-  const digest = await crypto.subtle.digest("SHA-256", challengeBytes);
+  const graffiti = String(getStoredWallet()?.graffiti ?? "").trim();
+  const payload = new TextEncoder().encode(
+    `${DONATION_HEARTBEAT_CONTEXT}\0${challengeHex}\0${graffiti}`
+  );
+  const digest = await crypto.subtle.digest("SHA-256", payload);
   return new Uint8Array(digest);
 }
 
@@ -275,6 +353,30 @@ function clearWalletAutoRefresh() {
     window.clearInterval(walletAutoRefreshIntervalId);
     walletAutoRefreshIntervalId = null;
   }
+}
+
+function clearWalletDataRefetchTimeout() {
+  if (walletDataRefetchTimeoutId) {
+    window.clearTimeout(walletDataRefetchTimeoutId);
+    walletDataRefetchTimeoutId = null;
+  }
+}
+
+function formatSatsAsBtcValue(sats) {
+  return (Number(sats ?? 0) / 100000000).toFixed(8);
+}
+
+function parseBtcAmountToSats(value) {
+  const trimmed = String(value ?? "").trim();
+
+  if (!/^\d+(?:\.\d{1,8})?$/.test(trimmed)) {
+    return null;
+  }
+
+  const [wholePart, fractionalPart = ""] = trimmed.split(".");
+  const normalizedFractional = `${fractionalPart}00000000`.slice(0, 8);
+
+  return Number(BigInt(wholePart) * 100000000n + BigInt(normalizedFractional));
 }
 
 function getMaxRequestsPerTx() {
@@ -306,6 +408,39 @@ function getFeeRateSatPerVbyte() {
   return Math.min(Math.max(value || fallback, 1), 500);
 }
 
+function getValidatedFeeRateSatPerVbyte() {
+  const input = $("[data-fee-rate-input]");
+  const value = String(input?.value ?? "").trim();
+
+  if (!/^\d+$/.test(value)) {
+    return null;
+  }
+
+  const parsed = Number(value);
+
+  if (!Number.isInteger(parsed) || parsed < 1 || parsed > 500) {
+    return null;
+  }
+
+  return parsed;
+}
+
+function getSendAmountSats() {
+  const input = $("[data-send-amount]");
+  return parseBtcAmountToSats(String(input?.value ?? ""));
+}
+
+function getGraffitiValue() {
+  const input = $("[data-graffiti-input]");
+  const fallback = String(getStoredWallet()?.graffiti ?? "").trim();
+
+  if (!input) {
+    return fallback;
+  }
+
+  return String(input.value ?? fallback).trim();
+}
+
 function setMaxRequestsInputValue(value) {
   const input = $("[data-max-requests-input]");
 
@@ -319,6 +454,22 @@ function setFeeRateInputValue(value) {
 
   if (input) {
     input.value = String(Math.min(Math.max(Number(value) || 2, 1), 500));
+  }
+}
+
+function setGraffitiInputValue(value) {
+  const input = $("[data-graffiti-input]");
+
+  if (input) {
+    input.value = String(value ?? "").trim();
+  }
+}
+
+function setSendAmountInputValueFromSats(sats) {
+  const input = $("[data-send-amount]");
+
+  if (input) {
+    input.value = formatSatsAsBtcValue(sats);
   }
 }
 
@@ -360,6 +511,24 @@ function setFeeRateEditing(isEditing) {
   }
 }
 
+function setGraffitiEditing(isEditing) {
+  const input = $("[data-graffiti-input]");
+  const editButton = $("[data-edit-graffiti]");
+  const saveButton = $("[data-save-graffiti]");
+
+  if (input) {
+    input.disabled = !isEditing;
+  }
+
+  if (editButton) {
+    editButton.disabled = isEditing;
+  }
+
+  if (saveButton) {
+    saveButton.hidden = !isEditing;
+  }
+}
+
 function setSendStatus(text, type = "") {
   const node = $("[data-send-status]");
 
@@ -367,8 +536,66 @@ function setSendStatus(text, type = "") {
     return;
   }
 
+  node.className = "";
   node.textContent = text;
   node.dataset.messageType = type;
+}
+
+function setSendStatusWithTxLink(message, txid, explorerUrl) {
+  const node = $("[data-send-status]");
+
+  if (!node) {
+    return;
+  }
+
+  node.dataset.messageType = "success";
+  node.className = "request-success";
+  node.textContent = `${message} `;
+
+  if (!explorerUrl || !txid) {
+    node.textContent = message;
+    return;
+  }
+
+  const link = document.createElement("a");
+  link.href = explorerUrl;
+  link.target = "_blank";
+  link.rel = "noreferrer";
+  link.textContent = txid;
+  node.appendChild(link);
+}
+
+function isSendFormValid() {
+  const destinationAddress = String($("[data-send-address]")?.value ?? "").trim();
+  const amountSats = getSendAmountSats();
+  const feeRate = getValidatedFeeRateSatPerVbyte();
+
+  if (!unlockedWalletState) {
+    return false;
+  }
+
+  if (!isLikelyAddressForNetwork(destinationAddress, appConfig?.network ?? "mainnet")) {
+    return false;
+  }
+
+  if (!Number.isInteger(amountSats) || Number(amountSats) <= 0) {
+    return false;
+  }
+
+  return feeRate != null;
+}
+
+function updateSendControls() {
+  const sendButton = $("[data-send-wallet]");
+  const maxButton = $("[data-send-max]");
+
+  if (sendButton) {
+    sendButton.disabled = !isSendFormValid();
+  }
+
+  if (maxButton) {
+    maxButton.disabled = !unlockedWalletState || getValidatedFeeRateSatPerVbyte() == null;
+  }
 }
 
 function renderExecutionStatus(text, isRunning = false) {
@@ -412,6 +639,19 @@ function renderExecutionStatus(text, isRunning = false) {
 
   if (feeRateSaveButton) {
     feeRateSaveButton.disabled = isRunning;
+  }
+
+  updateSendControls();
+}
+
+function updateGraffitiThresholdNote() {
+  const node = $("[data-graffiti-threshold]");
+  const minimumGraffitiBtc = String(appConfig?.donations?.minimumGraffitiBtc ?? "").trim();
+
+  if (node) {
+    node.textContent = minimumGraffitiBtc
+      ? `${minimumGraffitiBtc} ${getCoinLabel()}`
+      : "the configured minimum";
   }
 }
 
@@ -532,8 +772,45 @@ async function renderWalletActivity(address) {
     return;
   }
 
-  walletActivityItems = result.data.items;
+  walletActivityItems = [...result.data.items].sort((left, right) => {
+    const leftPending = !left?.occurredAt;
+    const rightPending = !right?.occurredAt;
+
+    if (leftPending !== rightPending) {
+      return leftPending ? -1 : 1;
+    }
+
+    const leftTime = left?.occurredAt ? new Date(left.occurredAt).valueOf() : 0;
+    const rightTime = right?.occurredAt ? new Date(right.occurredAt).valueOf() : 0;
+    return rightTime - leftTime;
+  });
   renderWalletActivityTable();
+}
+
+async function refetchWalletData({ followUpMs = 0 } = {}) {
+  if (!unlockedWalletState) {
+    return;
+  }
+
+  await Promise.all([
+    updateWalletBalance(unlockedWalletState.address),
+    renderWalletActivity(unlockedWalletState.address)
+  ]);
+
+  clearWalletDataRefetchTimeout();
+
+  if (followUpMs > 0) {
+    walletDataRefetchTimeoutId = window.setTimeout(() => {
+      if (!unlockedWalletState) {
+        return;
+      }
+
+      void Promise.all([
+        updateWalletBalance(unlockedWalletState.address),
+        renderWalletActivity(unlockedWalletState.address)
+      ]);
+    }, followUpMs);
+  }
 }
 
 function createRandomConfirmationIndexes(wordCount) {
@@ -640,6 +917,18 @@ function syncPasswordStepState() {
   }
 }
 
+function syncImportStepState() {
+  const mnemonic = String($("[data-import-mnemonic]")?.value ?? "")
+    .trim()
+    .toLowerCase()
+    .replace(/\s+/g, " ");
+  const continueButton = $("[data-import-wallet]");
+
+  if (continueButton) {
+    continueButton.disabled = !validateMnemonic(mnemonic, wordlist);
+  }
+}
+
 function handlePasswordStepSubmit(event) {
   if (event.key !== "Enter") {
     return;
@@ -693,11 +982,13 @@ function syncSaveWalletState() {
   }
 }
 
-function prepareMnemonicFlow(mnemonic) {
+function prepareMnemonicFlow(mnemonic, mode = "create") {
   pendingMnemonic = mnemonic.trim().toLowerCase();
-  confirmationIndexes = createRandomConfirmationIndexes(
-    pendingMnemonic.split(/\s+/).length
-  );
+  pendingWalletMode = mode;
+  confirmationIndexes =
+    mode === "create"
+      ? createRandomConfirmationIndexes(pendingMnemonic.split(/\s+/).length)
+      : [];
 
   const passwordInput = $("[data-wallet-password]");
   const confirmPasswordInput = $("[data-wallet-password-confirm]");
@@ -715,20 +1006,13 @@ function prepareMnemonicFlow(mnemonic) {
     unlockPasswordInput.value = "";
   }
 
-  renderMnemonicWords();
-  renderConfirmationPrompts();
+  if (mode === "create") {
+    renderMnemonicWords();
+    renderConfirmationPrompts();
+  }
   syncPasswordStepState();
-  syncSaveWalletState();
   setMessage("", "");
   setHash(DONATE_HASHES.createPassword);
-}
-
-function isStoredWalletCompatible(storedWallet) {
-  if (!storedWallet || !storedWallet.network) {
-    return true;
-  }
-
-  return storedWallet.network === appConfig?.network;
 }
 
 function clearUnlockedWalletRuntime() {
@@ -778,7 +1062,8 @@ async function maybeHeartbeat() {
     address: unlockedWalletState.address,
     publicKeyHex: unlockedWalletState.publicKeyHex,
     challenge,
-    signatureHex
+    signatureHex,
+    graffiti: String(getStoredWallet()?.graffiti ?? "").trim()
   });
 
   if (!heartbeatResult.ok) {
@@ -894,7 +1179,12 @@ async function buildSendTransaction(destinationAddress, amountSats) {
     .filter((utxo) => Number(utxo.height ?? 0) > 0)
     .sort((left, right) => left.value - right.value);
 
-  const feeRate = getFeeRateSatPerVbyte();
+  const feeRate = getValidatedFeeRateSatPerVbyte();
+
+  if (feeRate == null) {
+    throw new Error("Enter a valid sats/vbyte fee rate.");
+  }
+
   const outputs = [{ address: destinationAddress, value: Number(amountSats) }];
   const selectedInputs = [];
   let totalInputs = 0;
@@ -966,6 +1256,45 @@ async function buildSendTransaction(destinationAddress, amountSats) {
   };
 }
 
+async function calculateMaxSendAmountSats() {
+  if (!unlockedWalletState) {
+    throw new Error("Unlock the donation wallet first.");
+  }
+
+  const utxoResult = await getWalletUtxos(unlockedWalletState.address);
+
+  if (!utxoResult.ok) {
+    throw new Error("Unable to load donation wallet UTXOs.");
+  }
+
+  const confirmedUtxos = [...(utxoResult.data?.utxos ?? [])].filter(
+    (utxo) => Number(utxo.height ?? 0) > 0
+  );
+
+  if (!confirmedUtxos.length) {
+    throw new Error("This donation wallet has no confirmed spendable UTXOs.");
+  }
+
+  const feeRate = getValidatedFeeRateSatPerVbyte();
+
+  if (feeRate == null) {
+    throw new Error("Enter a valid sats/vbyte fee rate.");
+  }
+
+  const totalInputs = confirmedUtxos.reduce(
+    (sum, utxo) => sum + Number(utxo.value ?? 0),
+    0
+  );
+  const fee = estimateFee(confirmedUtxos.length, 1, feeRate);
+  const maxSendSats = totalInputs - fee;
+
+  if (maxSendSats <= 0) {
+    throw new Error("This donation wallet does not have enough confirmed funds to cover the fee.");
+  }
+
+  return maxSendSats;
+}
+
 function scheduleNextCycle(delayMs = null) {
   if (!donationRuntimeState.enabled) {
     return;
@@ -1020,6 +1349,7 @@ async function runDonationExecutionCycle() {
       }
 
       if (!txStatusResult.data?.confirmed) {
+        void refetchWalletData({ followUpMs: SEND_REFETCH_DELAY_MS });
         renderExecutionStatus(
           `Donation wallet is running... waiting for confirmation on ${donationRuntimeState.pendingTxId.slice(0, 12)}...`,
           true
@@ -1028,10 +1358,7 @@ async function runDonationExecutionCycle() {
       }
 
       donationRuntimeState.pendingTxId = "";
-      await Promise.all([
-        updateWalletBalance(unlockedWalletState.address),
-        renderWalletActivity(unlockedWalletState.address)
-      ]);
+      await refetchWalletData({ followUpMs: SEND_REFETCH_DELAY_MS });
     }
 
     const reserveResult = await reserveDonationRequests(
@@ -1082,10 +1409,7 @@ async function runDonationExecutionCycle() {
 
     donationRuntimeState.pendingTxId = String(submitResult.data?.txid ?? "");
 
-    await Promise.all([
-      updateWalletBalance(unlockedWalletState.address),
-      renderWalletActivity(unlockedWalletState.address)
-    ]);
+    await refetchWalletData({ followUpMs: SEND_REFETCH_DELAY_MS });
 
     renderExecutionStatus(
       `Donation wallet is running... submitted ${donationRuntimeState.pendingTxId.slice(0, 12)}...`,
@@ -1137,7 +1461,7 @@ async function saveWalletFromPendingMnemonic() {
     return;
   }
 
-  if (!validateConfirmationInputs()) {
+  if (pendingWalletMode === "create" && !validateConfirmationInputs()) {
     setMessage("The mnemonic confirmation words did not match.", "error");
     return;
   }
@@ -1150,6 +1474,7 @@ async function saveWalletFromPendingMnemonic() {
     network: appConfig.network,
     maxRequestsPerTx: 1,
     feeRateSatPerVbyte: Number(appConfig?.donations?.feeRateSatPerVbyte ?? 2) || 2,
+    graffiti: "",
     ...encrypted,
     address: wallet.address,
     derivationPath: wallet.derivationPath,
@@ -1190,14 +1515,14 @@ async function renderUnlockedWallet(addressOverride) {
   setFeeRateInputValue(
     storedWallet?.feeRateSatPerVbyte ?? appConfig?.donations?.feeRateSatPerVbyte ?? 2
   );
+  setGraffitiInputValue(storedWallet?.graffiti ?? "");
   setMaxRequestsEditing(false);
   setFeeRateEditing(false);
+  setGraffitiEditing(false);
+  updateGraffitiThresholdNote();
   renderExecutionStatus("Donation wallet is stopped.", false);
 
-  await Promise.all([
-    updateWalletBalance(address),
-    renderWalletActivity(address)
-  ]);
+  await refetchWalletData();
 
   clearWalletAutoRefresh();
   walletAutoRefreshIntervalId = window.setInterval(() => {
@@ -1206,10 +1531,7 @@ async function renderUnlockedWallet(addressOverride) {
       return;
     }
 
-    void Promise.all([
-      updateWalletBalance(unlockedWalletState.address),
-      renderWalletActivity(unlockedWalletState.address)
-    ]);
+    void refetchWalletData();
   }, WALLET_AUTO_REFRESH_MS);
 
   setMessage("", "");
@@ -1221,20 +1543,10 @@ async function renderUnlockedWallet(addressOverride) {
 }
 
 async function unlockStoredWallet(password) {
-  const storedWallet = getStoredWallet();
+  const { wallet: storedWallet } = getUnlockSourceWalletInfo();
 
   if (!storedWallet) {
     showSection("onboarding");
-    return;
-  }
-
-  if (!isStoredWalletCompatible(storedWallet)) {
-    setMessage(
-      `This donation wallet was saved for ${storedWallet.network}. Switch the backend network back or delete the saved wallet first.`,
-      "error"
-    );
-    showSection("locked");
-    window.history.replaceState(null, "", DONATE_HASHES.unlockWallet);
     return;
   }
 
@@ -1248,6 +1560,12 @@ async function unlockStoredWallet(password) {
 
     const wallet = deriveWallet(mnemonic);
     unlockedWalletState = wallet;
+    storeWallet({
+      ...storedWallet,
+      network: appConfig.network,
+      address: wallet.address,
+      derivationPath: wallet.derivationPath
+    });
     await renderUnlockedWallet(wallet.address);
   } catch {
     setMessage("Unable to unlock the donation wallet with that password.", "error");
@@ -1258,20 +1576,23 @@ async function unlockStoredWallet(password) {
 function renderLockedState() {
   const deleteButton = $("[data-delete-wallet]");
   const addressNode = $("[data-locked-address]");
-  const storedWallet = getStoredWallet();
+  const unlockSource = getUnlockSourceWalletInfo();
+  const storedWallet = unlockSource.wallet;
 
   if (addressNode) {
-    addressNode.textContent = storedWallet?.address ?? "";
+    addressNode.textContent = unlockSource.isCurrentNetwork
+      ? storedWallet?.address ?? ""
+      : "";
   }
 
   if (deleteButton) {
     deleteButton.hidden = appConfig?.network !== "regtest";
   }
 
-  if (storedWallet && !isStoredWalletCompatible(storedWallet)) {
+  if (storedWallet && !unlockSource.isCurrentNetwork) {
     setMessage(
-      `This donation wallet was saved for ${storedWallet.network}. Switch the backend network back or delete the saved wallet first.`,
-      "error"
+      `Unlock this donation wallet to load its ${NETWORK_CONFIG[appConfig.network].label} address.`,
+      ""
     );
   } else {
     setMessage("", "");
@@ -1283,7 +1604,7 @@ function renderLockedState() {
 
 function applyHashRoute() {
   const hash = getCurrentHash();
-  const hasStoredWallet = Boolean(getStoredWallet());
+  const hasStoredWallet = Boolean(getUnlockSourceWalletInfo().wallet);
   const hasPendingMnemonic = Boolean(pendingMnemonic);
 
   if (hash === DONATE_HASHES.importWallet) {
@@ -1308,6 +1629,11 @@ function applyHashRoute() {
       return;
     }
 
+    if (pendingWalletMode !== "create") {
+      setHash(DONATE_HASHES.createPassword);
+      return;
+    }
+
     showCreateWalletStep("mnemonic");
     return;
   }
@@ -1315,6 +1641,11 @@ function applyHashRoute() {
   if (hash === DONATE_HASHES.createWords) {
     if (!hasPendingMnemonic) {
       setHash(DONATE_HASHES.onboarding);
+      return;
+    }
+
+    if (pendingWalletMode !== "create") {
+      setHash(DONATE_HASHES.createPassword);
       return;
     }
 
@@ -1342,7 +1673,7 @@ function applyHashRoute() {
 }
 
 export async function initDonatePage() {
-  const configResult = await getAppConfig();
+  const configResult = await getRuntimeConfig();
 
   if (!configResult.ok) {
     setMessage("Unable to load app configuration.", "error");
@@ -1370,11 +1701,16 @@ export async function initDonatePage() {
   const saveMaxRequestsButton = $("[data-save-max-requests]");
   const editFeeRateButton = $("[data-edit-fee-rate]");
   const saveFeeRateButton = $("[data-save-fee-rate]");
+  const graffitiInput = $("[data-graffiti-input]");
+  const editGraffitiButton = $("[data-edit-graffiti]");
+  const saveGraffitiButton = $("[data-save-graffiti]");
   const activityPrevButton = $("[data-wallet-activity-prev]");
   const activityNextButton = $("[data-wallet-activity-next]");
   const sendButton = $("[data-send-wallet]");
+  const sendMaxButton = $("[data-send-max]");
   const sendAddressInput = $("[data-send-address]");
   const sendAmountInput = $("[data-send-amount]");
+  const feeRateInput = $("[data-fee-rate-input]");
   const passwordInput = $("[data-wallet-password]");
   const confirmPasswordInput = $("[data-wallet-password-confirm]");
   const importMnemonicInput = $("[data-import-mnemonic]");
@@ -1384,15 +1720,22 @@ export async function initDonatePage() {
   confirmPasswordInput?.addEventListener("input", syncPasswordStepState);
   passwordInput?.addEventListener("keydown", handlePasswordStepSubmit);
   confirmPasswordInput?.addEventListener("keydown", handlePasswordStepSubmit);
+  importMnemonicInput?.addEventListener("input", syncImportStepState);
   importMnemonicInput?.addEventListener("keydown", (event) =>
     handleEnterSubmit(event, "[data-import-wallet]")
   );
   unlockPasswordInput?.addEventListener("keydown", (event) =>
     handleEnterSubmit(event, "[data-unlock-wallet]")
   );
+  graffitiInput?.addEventListener("keydown", (event) =>
+    handleEnterSubmit(event, "[data-save-graffiti]")
+  );
+  sendAddressInput?.addEventListener("input", updateSendControls);
+  sendAmountInput?.addEventListener("input", updateSendControls);
+  feeRateInput?.addEventListener("input", updateSendControls);
 
   createButton?.addEventListener("click", () => {
-    prepareMnemonicFlow(generateMnemonic(wordlist, 128));
+    prepareMnemonicFlow(generateMnemonic(wordlist, 128), "create");
   });
 
   revealImportButton?.addEventListener("click", () => {
@@ -1410,15 +1753,20 @@ export async function initDonatePage() {
       return;
     }
 
-    prepareMnemonicFlow(mnemonic);
+    prepareMnemonicFlow(mnemonic, "import");
   });
 
   importCancelButton?.addEventListener("click", () => {
     setHash(DONATE_HASHES.onboarding);
   });
 
-  confirmNextButton?.addEventListener("click", () => {
+  confirmNextButton?.addEventListener("click", async () => {
     if (!validatePendingPassword()) {
+      return;
+    }
+
+    if (pendingWalletMode !== "create") {
+      await saveWalletFromPendingMnemonic();
       return;
     }
 
@@ -1444,6 +1792,7 @@ export async function initDonatePage() {
 
   confirmCancelButton?.addEventListener("click", () => {
     pendingMnemonic = "";
+    pendingWalletMode = "create";
     confirmationIndexes = [];
     clearUnlockedWalletRuntime();
     setMessage("", "");
@@ -1480,6 +1829,30 @@ export async function initDonatePage() {
     updateStoredWallet({ feeRateSatPerVbyte });
     setFeeRateInputValue(feeRateSatPerVbyte);
     setFeeRateEditing(false);
+    updateSendControls();
+  });
+
+  editGraffitiButton?.addEventListener("click", () => {
+    setGraffitiEditing(true);
+  });
+
+  saveGraffitiButton?.addEventListener("click", () => {
+    const graffiti = getGraffitiValue();
+
+    if ([...graffiti].length > GRAFFITI_MAX_LENGTH) {
+      setMessage(`Graffiti must be ${GRAFFITI_MAX_LENGTH} characters or fewer.`, "error");
+      return;
+    }
+
+    updateStoredWallet({ graffiti });
+    setGraffitiInputValue(graffiti);
+    setGraffitiEditing(false);
+
+    if (donationRuntimeState.enabled) {
+      donationRuntimeState.lastHeartbeatAt = 0;
+    }
+
+    setMessage("", "");
   });
 
   activityPrevButton?.addEventListener("click", () => {
@@ -1522,9 +1895,25 @@ export async function initDonatePage() {
     handleEnterSubmit(event, "[data-send-wallet]")
   );
 
+  sendMaxButton?.addEventListener("click", async () => {
+    setSendStatus("", "");
+
+    try {
+      const maxSendSats = await calculateMaxSendAmountSats();
+      setSendAmountInputValueFromSats(maxSendSats);
+      updateSendControls();
+      await refetchWalletData({ followUpMs: SEND_REFETCH_DELAY_MS });
+    } catch (error) {
+      setSendStatus(
+        error instanceof Error ? error.message : "Unable to calculate the max send amount.",
+        "error"
+      );
+    }
+  });
+
   sendButton?.addEventListener("click", async () => {
     const destinationAddress = String(sendAddressInput?.value ?? "").trim();
-    const amountSats = Number(sendAmountInput?.value ?? 0);
+    const amountSats = getSendAmountSats();
 
     setSendStatus("", "");
 
@@ -1540,12 +1929,21 @@ export async function initDonatePage() {
       return;
     }
 
-    if (!Number.isInteger(amountSats) || amountSats <= 0) {
-      setSendStatus("Enter a valid amount in sats.", "error");
+    if (!Number.isInteger(amountSats) || Number(amountSats) <= 0) {
+      setSendStatus(`Enter a valid amount in ${getCoinLabel()}.`, "error");
+      return;
+    }
+
+    if (getValidatedFeeRateSatPerVbyte() == null) {
+      setSendStatus("Enter a valid sats/vbyte fee rate.", "error");
       return;
     }
 
     sendButton.disabled = true;
+
+    if (sendMaxButton) {
+      sendMaxButton.disabled = true;
+    }
 
     try {
       const transaction = await buildSendTransaction(destinationAddress, amountSats);
@@ -1559,7 +1957,11 @@ export async function initDonatePage() {
         return;
       }
 
-      setSendStatus(`Sent. ${result.data?.txid ?? ""}`, "success");
+      setSendStatusWithTxLink(
+        "Sent.",
+        String(result.data?.txid ?? ""),
+        result.data?.explorerUrl ?? ""
+      );
 
       if (sendAddressInput) {
         sendAddressInput.value = "";
@@ -1569,17 +1971,15 @@ export async function initDonatePage() {
         sendAmountInput.value = "";
       }
 
-      await Promise.all([
-        updateWalletBalance(unlockedWalletState.address),
-        renderWalletActivity(unlockedWalletState.address)
-      ]);
+      updateSendControls();
+      await refetchWalletData({ followUpMs: SEND_REFETCH_DELAY_MS });
     } catch (error) {
       setSendStatus(
         error instanceof Error ? error.message : "Unable to send from this wallet.",
         "error"
       );
     } finally {
-      sendButton.disabled = false;
+      updateSendControls();
     }
   });
 
@@ -1603,6 +2003,7 @@ export async function initDonatePage() {
     stopDonationLoop();
     clearWallet();
     pendingMnemonic = "";
+    pendingWalletMode = "create";
     confirmationIndexes = [];
     clearUnlockedWalletRuntime();
     setMessage("", "");
@@ -1613,6 +2014,9 @@ export async function initDonatePage() {
   window.addEventListener("beforeunload", () => {
     clearScheduledCycle();
     clearWalletAutoRefresh();
+    clearWalletDataRefetchTimeout();
   });
+  syncImportStepState();
+  updateSendControls();
   applyHashRoute();
 }

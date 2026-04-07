@@ -28,9 +28,9 @@ var __toESM = (mod2, isNodeMode, target) => (target = mod2 != null ? __create(__
   mod2
 ));
 
-// node_modules/base64-js/index.js
+// ../../node_modules/base64-js/index.js
 var require_base64_js = __commonJS({
-  "node_modules/base64-js/index.js"(exports) {
+  "../../node_modules/base64-js/index.js"(exports) {
     "use strict";
     exports.byteLength = byteLength;
     exports.toByteArray = toByteArray;
@@ -129,9 +129,9 @@ var require_base64_js = __commonJS({
   }
 });
 
-// node_modules/ieee754/index.js
+// ../../node_modules/ieee754/index.js
 var require_ieee754 = __commonJS({
-  "node_modules/ieee754/index.js"(exports) {
+  "../../node_modules/ieee754/index.js"(exports) {
     exports.read = function(buffer, offset, isLE, mLen, nBytes) {
       var e, m;
       var eLen = nBytes * 8 - mLen - 1;
@@ -212,9 +212,9 @@ var require_ieee754 = __commonJS({
   }
 });
 
-// apps/frontend/node_modules/buffer/index.js
+// node_modules/buffer/index.js
 var require_buffer = __commonJS({
-  "apps/frontend/node_modules/buffer/index.js"(exports) {
+  "node_modules/buffer/index.js"(exports) {
     "use strict";
     var base64 = require_base64_js();
     var ieee754 = require_ieee754();
@@ -1804,9 +1804,9 @@ var require_buffer = __commonJS({
   }
 });
 
-// node_modules/bech32/dist/index.js
+// ../../node_modules/bech32/dist/index.js
 var require_dist = __commonJS({
-  "node_modules/bech32/dist/index.js"(exports) {
+  "../../node_modules/bech32/dist/index.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.bech32m = exports.bech32 = void 0;
@@ -1970,18 +1970,18 @@ var require_dist = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/can-promise.js
+// ../../node_modules/qrcode/lib/can-promise.js
 var require_can_promise = __commonJS({
-  "node_modules/qrcode/lib/can-promise.js"(exports, module) {
+  "../../node_modules/qrcode/lib/can-promise.js"(exports, module) {
     module.exports = function() {
       return typeof Promise === "function" && Promise.prototype && Promise.prototype.then;
     };
   }
 });
 
-// node_modules/qrcode/lib/core/utils.js
+// ../../node_modules/qrcode/lib/core/utils.js
 var require_utils = __commonJS({
-  "node_modules/qrcode/lib/core/utils.js"(exports) {
+  "../../node_modules/qrcode/lib/core/utils.js"(exports) {
     var toSJISFunction;
     var CODEWORDS_COUNT = [
       0,
@@ -2058,9 +2058,9 @@ var require_utils = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/error-correction-level.js
+// ../../node_modules/qrcode/lib/core/error-correction-level.js
 var require_error_correction_level = __commonJS({
-  "node_modules/qrcode/lib/core/error-correction-level.js"(exports) {
+  "../../node_modules/qrcode/lib/core/error-correction-level.js"(exports) {
     exports.L = { bit: 1 };
     exports.M = { bit: 0 };
     exports.Q = { bit: 3 };
@@ -2103,9 +2103,9 @@ var require_error_correction_level = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/bit-buffer.js
+// ../../node_modules/qrcode/lib/core/bit-buffer.js
 var require_bit_buffer = __commonJS({
-  "node_modules/qrcode/lib/core/bit-buffer.js"(exports, module) {
+  "../../node_modules/qrcode/lib/core/bit-buffer.js"(exports, module) {
     function BitBuffer() {
       this.buffer = [];
       this.length = 0;
@@ -2138,9 +2138,9 @@ var require_bit_buffer = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/bit-matrix.js
+// ../../node_modules/qrcode/lib/core/bit-matrix.js
 var require_bit_matrix = __commonJS({
-  "node_modules/qrcode/lib/core/bit-matrix.js"(exports, module) {
+  "../../node_modules/qrcode/lib/core/bit-matrix.js"(exports, module) {
     function BitMatrix(size) {
       if (!size || size < 1) {
         throw new Error("BitMatrix size must be defined and greater than 0");
@@ -2167,9 +2167,9 @@ var require_bit_matrix = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/alignment-pattern.js
+// ../../node_modules/qrcode/lib/core/alignment-pattern.js
 var require_alignment_pattern = __commonJS({
-  "node_modules/qrcode/lib/core/alignment-pattern.js"(exports) {
+  "../../node_modules/qrcode/lib/core/alignment-pattern.js"(exports) {
     var getSymbolSize = require_utils().getSymbolSize;
     exports.getRowColCoords = function getRowColCoords(version) {
       if (version === 1) return [];
@@ -2202,9 +2202,9 @@ var require_alignment_pattern = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/finder-pattern.js
+// ../../node_modules/qrcode/lib/core/finder-pattern.js
 var require_finder_pattern = __commonJS({
-  "node_modules/qrcode/lib/core/finder-pattern.js"(exports) {
+  "../../node_modules/qrcode/lib/core/finder-pattern.js"(exports) {
     var getSymbolSize = require_utils().getSymbolSize;
     var FINDER_PATTERN_SIZE = 7;
     exports.getPositions = function getPositions(version) {
@@ -2221,9 +2221,9 @@ var require_finder_pattern = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/mask-pattern.js
+// ../../node_modules/qrcode/lib/core/mask-pattern.js
 var require_mask_pattern = __commonJS({
-  "node_modules/qrcode/lib/core/mask-pattern.js"(exports) {
+  "../../node_modules/qrcode/lib/core/mask-pattern.js"(exports) {
     exports.Patterns = {
       PATTERN000: 0,
       PATTERN001: 1,
@@ -2363,9 +2363,9 @@ var require_mask_pattern = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/error-correction-code.js
+// ../../node_modules/qrcode/lib/core/error-correction-code.js
 var require_error_correction_code = __commonJS({
-  "node_modules/qrcode/lib/core/error-correction-code.js"(exports) {
+  "../../node_modules/qrcode/lib/core/error-correction-code.js"(exports) {
     var ECLevel = require_error_correction_level();
     var EC_BLOCKS_TABLE = [
       // L  M  Q  H
@@ -2724,9 +2724,9 @@ var require_error_correction_code = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/galois-field.js
+// ../../node_modules/qrcode/lib/core/galois-field.js
 var require_galois_field = __commonJS({
-  "node_modules/qrcode/lib/core/galois-field.js"(exports) {
+  "../../node_modules/qrcode/lib/core/galois-field.js"(exports) {
     var EXP_TABLE = new Uint8Array(512);
     var LOG_TABLE = new Uint8Array(256);
     (function initTables() {
@@ -2757,9 +2757,9 @@ var require_galois_field = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/polynomial.js
+// ../../node_modules/qrcode/lib/core/polynomial.js
 var require_polynomial = __commonJS({
-  "node_modules/qrcode/lib/core/polynomial.js"(exports) {
+  "../../node_modules/qrcode/lib/core/polynomial.js"(exports) {
     var GF = require_galois_field();
     exports.mul = function mul(p1, p2) {
       const coeff = new Uint8Array(p1.length + p2.length - 1);
@@ -2793,9 +2793,9 @@ var require_polynomial = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/reed-solomon-encoder.js
+// ../../node_modules/qrcode/lib/core/reed-solomon-encoder.js
 var require_reed_solomon_encoder = __commonJS({
-  "node_modules/qrcode/lib/core/reed-solomon-encoder.js"(exports, module) {
+  "../../node_modules/qrcode/lib/core/reed-solomon-encoder.js"(exports, module) {
     var Polynomial = require_polynomial();
     function ReedSolomonEncoder(degree) {
       this.genPoly = void 0;
@@ -2825,18 +2825,18 @@ var require_reed_solomon_encoder = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/version-check.js
+// ../../node_modules/qrcode/lib/core/version-check.js
 var require_version_check = __commonJS({
-  "node_modules/qrcode/lib/core/version-check.js"(exports) {
+  "../../node_modules/qrcode/lib/core/version-check.js"(exports) {
     exports.isValid = function isValid(version) {
       return !isNaN(version) && version >= 1 && version <= 40;
     };
   }
 });
 
-// node_modules/qrcode/lib/core/regex.js
+// ../../node_modules/qrcode/lib/core/regex.js
 var require_regex = __commonJS({
-  "node_modules/qrcode/lib/core/regex.js"(exports) {
+  "../../node_modules/qrcode/lib/core/regex.js"(exports) {
     var numeric = "[0-9]+";
     var alphanumeric = "[A-Z $%*+\\-./:]+";
     var kanji = "(?:[u3000-u303F]|[u3040-u309F]|[u30A0-u30FF]|[uFF00-uFFEF]|[u4E00-u9FAF]|[u2605-u2606]|[u2190-u2195]|u203B|[u2010u2015u2018u2019u2025u2026u201Cu201Du2225u2260]|[u0391-u0451]|[u00A7u00A8u00B1u00B4u00D7u00F7])+";
@@ -2862,9 +2862,9 @@ var require_regex = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/mode.js
+// ../../node_modules/qrcode/lib/core/mode.js
 var require_mode = __commonJS({
-  "node_modules/qrcode/lib/core/mode.js"(exports) {
+  "../../node_modules/qrcode/lib/core/mode.js"(exports) {
     var VersionCheck = require_version_check();
     var Regex = require_regex();
     exports.NUMERIC = {
@@ -2943,9 +2943,9 @@ var require_mode = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/version.js
+// ../../node_modules/qrcode/lib/core/version.js
 var require_version = __commonJS({
-  "node_modules/qrcode/lib/core/version.js"(exports) {
+  "../../node_modules/qrcode/lib/core/version.js"(exports) {
     var Utils = require_utils();
     var ECCode = require_error_correction_code();
     var ECLevel = require_error_correction_level();
@@ -3038,9 +3038,9 @@ var require_version = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/format-info.js
+// ../../node_modules/qrcode/lib/core/format-info.js
 var require_format_info = __commonJS({
-  "node_modules/qrcode/lib/core/format-info.js"(exports) {
+  "../../node_modules/qrcode/lib/core/format-info.js"(exports) {
     var Utils = require_utils();
     var G15 = 1 << 10 | 1 << 8 | 1 << 5 | 1 << 4 | 1 << 2 | 1 << 1 | 1 << 0;
     var G15_MASK = 1 << 14 | 1 << 12 | 1 << 10 | 1 << 4 | 1 << 1;
@@ -3056,9 +3056,9 @@ var require_format_info = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/numeric-data.js
+// ../../node_modules/qrcode/lib/core/numeric-data.js
 var require_numeric_data = __commonJS({
-  "node_modules/qrcode/lib/core/numeric-data.js"(exports, module) {
+  "../../node_modules/qrcode/lib/core/numeric-data.js"(exports, module) {
     var Mode = require_mode();
     function NumericData(data) {
       this.mode = Mode.NUMERIC;
@@ -3091,9 +3091,9 @@ var require_numeric_data = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/alphanumeric-data.js
+// ../../node_modules/qrcode/lib/core/alphanumeric-data.js
 var require_alphanumeric_data = __commonJS({
-  "node_modules/qrcode/lib/core/alphanumeric-data.js"(exports, module) {
+  "../../node_modules/qrcode/lib/core/alphanumeric-data.js"(exports, module) {
     var Mode = require_mode();
     var ALPHA_NUM_CHARS = [
       "0",
@@ -3170,9 +3170,9 @@ var require_alphanumeric_data = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/byte-data.js
+// ../../node_modules/qrcode/lib/core/byte-data.js
 var require_byte_data = __commonJS({
-  "node_modules/qrcode/lib/core/byte-data.js"(exports, module) {
+  "../../node_modules/qrcode/lib/core/byte-data.js"(exports, module) {
     var Mode = require_mode();
     function ByteData(data) {
       this.mode = Mode.BYTE;
@@ -3200,9 +3200,9 @@ var require_byte_data = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/kanji-data.js
+// ../../node_modules/qrcode/lib/core/kanji-data.js
 var require_kanji_data = __commonJS({
-  "node_modules/qrcode/lib/core/kanji-data.js"(exports, module) {
+  "../../node_modules/qrcode/lib/core/kanji-data.js"(exports, module) {
     var Mode = require_mode();
     var Utils = require_utils();
     function KanjiData(data) {
@@ -3239,9 +3239,9 @@ var require_kanji_data = __commonJS({
   }
 });
 
-// node_modules/dijkstrajs/dijkstra.js
+// ../../node_modules/dijkstrajs/dijkstra.js
 var require_dijkstra = __commonJS({
-  "node_modules/dijkstrajs/dijkstra.js"(exports, module) {
+  "../../node_modules/dijkstrajs/dijkstra.js"(exports, module) {
     "use strict";
     var dijkstra = {
       single_source_shortest_paths: function(graph, s, d) {
@@ -3340,9 +3340,9 @@ var require_dijkstra = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/segments.js
+// ../../node_modules/qrcode/lib/core/segments.js
 var require_segments = __commonJS({
-  "node_modules/qrcode/lib/core/segments.js"(exports) {
+  "../../node_modules/qrcode/lib/core/segments.js"(exports) {
     var Mode = require_mode();
     var NumericData = require_numeric_data();
     var AlphanumericData = require_alphanumeric_data();
@@ -3526,9 +3526,9 @@ var require_segments = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/core/qrcode.js
+// ../../node_modules/qrcode/lib/core/qrcode.js
 var require_qrcode = __commonJS({
-  "node_modules/qrcode/lib/core/qrcode.js"(exports) {
+  "../../node_modules/qrcode/lib/core/qrcode.js"(exports) {
     var Utils = require_utils();
     var ECLevel = require_error_correction_level();
     var BitBuffer = require_bit_buffer();
@@ -3787,9 +3787,9 @@ var require_qrcode = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/renderer/utils.js
+// ../../node_modules/qrcode/lib/renderer/utils.js
 var require_utils2 = __commonJS({
-  "node_modules/qrcode/lib/renderer/utils.js"(exports) {
+  "../../node_modules/qrcode/lib/renderer/utils.js"(exports) {
     function hex2rgba(hex) {
       if (typeof hex === "number") {
         hex = hex.toString();
@@ -3867,9 +3867,9 @@ var require_utils2 = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/renderer/canvas.js
+// ../../node_modules/qrcode/lib/renderer/canvas.js
 var require_canvas = __commonJS({
-  "node_modules/qrcode/lib/renderer/canvas.js"(exports) {
+  "../../node_modules/qrcode/lib/renderer/canvas.js"(exports) {
     var Utils = require_utils2();
     function clearCanvas(ctx, canvas, size) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -3920,9 +3920,9 @@ var require_canvas = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/renderer/svg-tag.js
+// ../../node_modules/qrcode/lib/renderer/svg-tag.js
 var require_svg_tag = __commonJS({
-  "node_modules/qrcode/lib/renderer/svg-tag.js"(exports) {
+  "../../node_modules/qrcode/lib/renderer/svg-tag.js"(exports) {
     var Utils = require_utils2();
     function getColorAttrib(color, attrib) {
       const alpha = color.a / 255;
@@ -3978,9 +3978,9 @@ var require_svg_tag = __commonJS({
   }
 });
 
-// node_modules/qrcode/lib/browser.js
+// ../../node_modules/qrcode/lib/browser.js
 var require_browser = __commonJS({
-  "node_modules/qrcode/lib/browser.js"(exports) {
+  "../../node_modules/qrcode/lib/browser.js"(exports) {
     var canPromise = require_can_promise();
     var QRCode2 = require_qrcode();
     var CanvasRenderer = require_canvas();
@@ -4048,10 +4048,10 @@ var require_browser = __commonJS({
   }
 });
 
-// apps/frontend/client/scripts/pages/donate.js
+// client/scripts/pages/donate.js
 var import_buffer = __toESM(require_buffer(), 1);
 
-// node_modules/@noble/curves/node_modules/@noble/hashes/utils.js
+// ../../node_modules/@noble/curves/node_modules/@noble/hashes/utils.js
 function isBytes(a) {
   return a instanceof Uint8Array || ArrayBuffer.isView(a) && a.constructor.name === "Uint8Array";
 }
@@ -4183,7 +4183,7 @@ var oidNist = (suffix) => ({
   oid: Uint8Array.from([6, 9, 96, 134, 72, 1, 101, 3, 4, 2, suffix])
 });
 
-// node_modules/@noble/curves/node_modules/@noble/hashes/_md.js
+// ../../node_modules/@noble/curves/node_modules/@noble/hashes/_md.js
 function Chi(a, b, c) {
   return a & b ^ ~a & c;
 }
@@ -4296,7 +4296,7 @@ var SHA256_IV = /* @__PURE__ */ Uint32Array.from([
   1541459225
 ]);
 
-// node_modules/@noble/curves/node_modules/@noble/hashes/sha2.js
+// ../../node_modules/@noble/curves/node_modules/@noble/hashes/sha2.js
 var SHA256_K = /* @__PURE__ */ Uint32Array.from([
   1116352408,
   1899447441,
@@ -4446,7 +4446,7 @@ var sha256 = /* @__PURE__ */ createHasher(
   /* @__PURE__ */ oidNist(1)
 );
 
-// node_modules/@noble/curves/utils.js
+// ../../node_modules/@noble/curves/utils.js
 var _0n = /* @__PURE__ */ BigInt(0);
 var _1n = /* @__PURE__ */ BigInt(1);
 function abool(value2, title = "") {
@@ -4586,7 +4586,7 @@ function memoized(fn) {
   };
 }
 
-// node_modules/@noble/curves/abstract/modular.js
+// ../../node_modules/@noble/curves/abstract/modular.js
 var _0n2 = /* @__PURE__ */ BigInt(0);
 var _1n2 = /* @__PURE__ */ BigInt(1);
 var _2n = /* @__PURE__ */ BigInt(2);
@@ -4972,7 +4972,7 @@ function mapHashToField(key, fieldOrder, isLE = false) {
   return isLE ? numberToBytesLE(reduced, fieldLen) : numberToBytesBE(reduced, fieldLen);
 }
 
-// node_modules/@noble/curves/abstract/curve.js
+// ../../node_modules/@noble/curves/abstract/curve.js
 var _0n3 = /* @__PURE__ */ BigInt(0);
 var _1n3 = /* @__PURE__ */ BigInt(1);
 function negateCt(condition, item) {
@@ -5205,7 +5205,7 @@ function createKeygen(randomSecretKey, getPublicKey) {
   };
 }
 
-// node_modules/@noble/curves/node_modules/@noble/hashes/hmac.js
+// ../../node_modules/@noble/curves/node_modules/@noble/hashes/hmac.js
 var _HMAC = class {
   oHash;
   iHash;
@@ -5276,7 +5276,7 @@ var _HMAC = class {
 var hmac = (hash, key, message) => new _HMAC(hash, key).update(message).digest();
 hmac.create = (hash, key) => new _HMAC(hash, key);
 
-// node_modules/@noble/curves/abstract/weierstrass.js
+// ../../node_modules/@noble/curves/abstract/weierstrass.js
 var divNearest = (num, den) => (num + (num >= 0 ? den : -den) / _2n2) / den;
 function _splitEndoScalar(k, basis, n) {
   const [[a1, b1], [a2, b2]] = basis;
@@ -6148,7 +6148,7 @@ function ecdsa(Point2, hash, ecdsaOpts = {}) {
   });
 }
 
-// node_modules/@noble/curves/secp256k1.js
+// ../../node_modules/@noble/curves/secp256k1.js
 var secp256k1_CURVE = {
   p: BigInt("0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f"),
   n: BigInt("0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141"),
@@ -6195,7 +6195,7 @@ var Pointk1 = /* @__PURE__ */ weierstrass(secp256k1_CURVE, {
 });
 var secp256k1 = /* @__PURE__ */ ecdsa(Pointk1, sha256);
 
-// node_modules/@scure/bip32/node_modules/@noble/hashes/utils.js
+// ../../node_modules/@scure/bip32/node_modules/@noble/hashes/utils.js
 function isBytes2(a) {
   return a instanceof Uint8Array || ArrayBuffer.isView(a) && a.constructor.name === "Uint8Array";
 }
@@ -6278,7 +6278,7 @@ var oidNist2 = (suffix) => ({
   oid: Uint8Array.from([6, 9, 96, 134, 72, 1, 101, 3, 4, 2, suffix])
 });
 
-// node_modules/@scure/bip32/node_modules/@noble/hashes/hmac.js
+// ../../node_modules/@scure/bip32/node_modules/@noble/hashes/hmac.js
 var _HMAC2 = class {
   oHash;
   iHash;
@@ -6349,7 +6349,7 @@ var _HMAC2 = class {
 var hmac2 = (hash, key, message) => new _HMAC2(hash, key).update(message).digest();
 hmac2.create = (hash, key) => new _HMAC2(hash, key);
 
-// node_modules/@scure/bip32/node_modules/@noble/hashes/_md.js
+// ../../node_modules/@scure/bip32/node_modules/@noble/hashes/_md.js
 function Chi2(a, b, c) {
   return a & b ^ ~a & c;
 }
@@ -6480,7 +6480,7 @@ var SHA512_IV2 = /* @__PURE__ */ Uint32Array.from([
   327033209
 ]);
 
-// node_modules/@scure/bip32/node_modules/@noble/hashes/legacy.js
+// ../../node_modules/@scure/bip32/node_modules/@noble/hashes/legacy.js
 var Rho160 = /* @__PURE__ */ Uint8Array.from([
   7,
   4,
@@ -6598,7 +6598,7 @@ var _RIPEMD160 = class extends HashMD2 {
 };
 var ripemd160 = /* @__PURE__ */ createHasher2(() => new _RIPEMD160());
 
-// node_modules/@scure/bip32/node_modules/@noble/hashes/_u64.js
+// ../../node_modules/@scure/bip32/node_modules/@noble/hashes/_u64.js
 var U32_MASK64 = /* @__PURE__ */ BigInt(2 ** 32 - 1);
 var _32n = /* @__PURE__ */ BigInt(32);
 function fromBig(n, le = false) {
@@ -6633,7 +6633,7 @@ var add4H = (low, Ah, Bh, Ch, Dh) => Ah + Bh + Ch + Dh + (low / 2 ** 32 | 0) | 0
 var add5L = (Al, Bl, Cl, Dl, El) => (Al >>> 0) + (Bl >>> 0) + (Cl >>> 0) + (Dl >>> 0) + (El >>> 0);
 var add5H = (low, Ah, Bh, Ch, Dh, Eh) => Ah + Bh + Ch + Dh + Eh + (low / 2 ** 32 | 0) | 0;
 
-// node_modules/@scure/bip32/node_modules/@noble/hashes/sha2.js
+// ../../node_modules/@scure/bip32/node_modules/@noble/hashes/sha2.js
 var SHA256_K2 = /* @__PURE__ */ Uint32Array.from([
   1116352408,
   1899447441,
@@ -6989,7 +6989,7 @@ var sha512 = /* @__PURE__ */ createHasher2(
   /* @__PURE__ */ oidNist2(3)
 );
 
-// node_modules/@scure/bip32/node_modules/@scure/base/index.js
+// ../../node_modules/@scure/bip32/node_modules/@scure/base/index.js
 function isBytes3(a) {
   return a instanceof Uint8Array || ArrayBuffer.isView(a) && a.constructor.name === "Uint8Array";
 }
@@ -7173,7 +7173,7 @@ var genBase58 = /* @__NO_SIDE_EFFECTS__ */ (abc) => /* @__PURE__ */ chain(/* @__
 var base58 = /* @__PURE__ */ genBase58("123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz");
 var createBase58check = (sha2566) => /* @__PURE__ */ chain(checksum(4, (data) => sha2566(sha2566(data))), base58);
 
-// node_modules/@scure/bip32/index.js
+// ../../node_modules/@scure/bip32/index.js
 var Point = secp256k1.Point;
 var { Fn } = Point;
 var base58check = createBase58check(sha2562);
@@ -7406,7 +7406,7 @@ var HDKey = class _HDKey {
   }
 };
 
-// node_modules/@scure/bip39/node_modules/@noble/hashes/utils.js
+// ../../node_modules/@scure/bip39/node_modules/@noble/hashes/utils.js
 function isBytes4(a) {
   return a instanceof Uint8Array || ArrayBuffer.isView(a) && a.constructor.name === "Uint8Array";
 }
@@ -7493,7 +7493,7 @@ var oidNist3 = (suffix) => ({
   oid: Uint8Array.from([6, 9, 96, 134, 72, 1, 101, 3, 4, 2, suffix])
 });
 
-// node_modules/@scure/bip39/node_modules/@noble/hashes/hmac.js
+// ../../node_modules/@scure/bip39/node_modules/@noble/hashes/hmac.js
 var _HMAC3 = class {
   oHash;
   iHash;
@@ -7564,7 +7564,7 @@ var _HMAC3 = class {
 var hmac3 = (hash, key, message) => new _HMAC3(hash, key).update(message).digest();
 hmac3.create = (hash, key) => new _HMAC3(hash, key);
 
-// node_modules/@scure/bip39/node_modules/@noble/hashes/pbkdf2.js
+// ../../node_modules/@scure/bip39/node_modules/@noble/hashes/pbkdf2.js
 function pbkdf2Init(hash, _password, _salt, _opts) {
   ahash3(hash);
   const opts = checkOpts({ dkLen: 32, asyncTick: 10 }, _opts);
@@ -7609,7 +7609,7 @@ function pbkdf2(hash, password, salt, opts) {
   return pbkdf2Output(PRF, PRFSalt, DK, prfW, u);
 }
 
-// node_modules/@scure/bip39/node_modules/@noble/hashes/_md.js
+// ../../node_modules/@scure/bip39/node_modules/@noble/hashes/_md.js
 function Chi3(a, b, c) {
   return a & b ^ ~a & c;
 }
@@ -7740,7 +7740,7 @@ var SHA512_IV3 = /* @__PURE__ */ Uint32Array.from([
   327033209
 ]);
 
-// node_modules/@scure/bip39/node_modules/@noble/hashes/_u64.js
+// ../../node_modules/@scure/bip39/node_modules/@noble/hashes/_u64.js
 var U32_MASK642 = /* @__PURE__ */ BigInt(2 ** 32 - 1);
 var _32n2 = /* @__PURE__ */ BigInt(32);
 function fromBig2(n, le = false) {
@@ -7775,7 +7775,7 @@ var add4H2 = (low, Ah, Bh, Ch, Dh) => Ah + Bh + Ch + Dh + (low / 2 ** 32 | 0) | 
 var add5L2 = (Al, Bl, Cl, Dl, El) => (Al >>> 0) + (Bl >>> 0) + (Cl >>> 0) + (Dl >>> 0) + (El >>> 0);
 var add5H2 = (low, Ah, Bh, Ch, Dh, Eh) => Ah + Bh + Ch + Dh + Eh + (low / 2 ** 32 | 0) | 0;
 
-// node_modules/@scure/bip39/node_modules/@noble/hashes/sha2.js
+// ../../node_modules/@scure/bip39/node_modules/@noble/hashes/sha2.js
 var SHA256_K3 = /* @__PURE__ */ Uint32Array.from([
   1116352408,
   1899447441,
@@ -8131,7 +8131,7 @@ var sha5122 = /* @__PURE__ */ createHasher3(
   /* @__PURE__ */ oidNist3(3)
 );
 
-// node_modules/@scure/bip39/node_modules/@scure/base/index.js
+// ../../node_modules/@scure/bip39/node_modules/@scure/base/index.js
 function isBytes5(a) {
   return a instanceof Uint8Array || ArrayBuffer.isView(a) && a.constructor.name === "Uint8Array";
 }
@@ -8414,7 +8414,7 @@ var utils = {
   padding
 };
 
-// node_modules/@scure/bip39/index.js
+// ../../node_modules/@scure/bip39/index.js
 var isJapanese = (wordlist2) => wordlist2[0] === "\u3042\u3044\u3053\u304F\u3057\u3093";
 function nfkd(str) {
   if (typeof str !== "string")
@@ -8476,7 +8476,7 @@ function mnemonicToSeedSync(mnemonic, passphrase = "") {
   return pbkdf2(sha5122, normalize(mnemonic).nfkd, psalt(passphrase), { c: 2048, dkLen: 64 });
 }
 
-// node_modules/@scure/bip39/wordlists/english.js
+// ../../node_modules/@scure/bip39/wordlists/english.js
 var wordlist = `abandon
 ability
 able
@@ -10526,7 +10526,7 @@ zero
 zone
 zoo`.split("\n");
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/networks.js
+// node_modules/bitcoinjs-lib/src/esm/networks.js
 var networks_exports = {};
 __export(networks_exports, {
   bitcoin: () => bitcoin,
@@ -10591,7 +10591,7 @@ var testnet = {
   wif: 239
 };
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/index.js
+// node_modules/bitcoinjs-lib/src/esm/payments/index.js
 var payments_exports = {};
 __export(payments_exports, {
   embed: () => p2data,
@@ -10604,7 +10604,7 @@ __export(payments_exports, {
   p2wsh: () => p2wsh
 });
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/bip66.js
+// node_modules/bitcoinjs-lib/src/esm/bip66.js
 function check(buffer) {
   if (buffer.length < 8) return false;
   if (buffer.length > 72) return false;
@@ -10675,7 +10675,7 @@ function encode(r, s) {
   return signature2;
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/ops.js
+// node_modules/bitcoinjs-lib/src/esm/ops.js
 var OPS;
 (function(OPS10) {
   OPS10[OPS10["OP_FALSE"] = 0] = "OP_FALSE";
@@ -10799,7 +10799,7 @@ var OPS;
   OPS10[OPS10["OP_INVALIDOPCODE"] = 255] = "OP_INVALIDOPCODE";
 })(OPS || (OPS = {}));
 
-// node_modules/uint8array-tools/src/mjs/browser.js
+// ../../node_modules/uint8array-tools/src/mjs/browser.js
 var HEX_STRINGS = "0123456789abcdefABCDEF";
 var HEX_CODES = HEX_STRINGS.split("").map((c) => c.codePointAt(0));
 var HEX_CODEPOINTS = Array(256).fill(true).map((_, i) => {
@@ -11093,7 +11093,7 @@ function readInt64(buffer, offset, littleEndian) {
   }
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/push_data.js
+// node_modules/bitcoinjs-lib/src/esm/push_data.js
 function encodingLength(i) {
   return i < OPS.OP_PUSHDATA1 ? 1 : i <= 255 ? 2 : i <= 65535 ? 3 : 5;
 }
@@ -11141,7 +11141,7 @@ function decode2(buffer, offset) {
   };
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/script_number.js
+// node_modules/bitcoinjs-lib/src/esm/script_number.js
 function decode3(buffer, maxLength, minimal) {
   maxLength = maxLength || 4;
   minimal = minimal === void 0 ? true : minimal;
@@ -11188,14 +11188,14 @@ function encode3(_number) {
   return buffer;
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/script_signature.js
+// node_modules/bitcoinjs-lib/src/esm/script_signature.js
 var script_signature_exports = {};
 __export(script_signature_exports, {
   decode: () => decode4,
   encode: () => encode4
 });
 
-// node_modules/valibot/dist/index.mjs
+// ../../node_modules/valibot/dist/index.mjs
 var store$4;
 // @__NO_SIDE_EFFECTS__
 function getGlobalConfig(config$1) {
@@ -11824,7 +11824,7 @@ function pipe(...pipe$1) {
   };
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/types.js
+// node_modules/bitcoinjs-lib/src/esm/types.js
 var ZERO32 = new Uint8Array(32);
 var EC_P = fromHex(
   "fffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f"
@@ -11894,7 +11894,7 @@ var NullablePartial = (a) => object(
   )
 );
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/script_signature.js
+// node_modules/bitcoinjs-lib/src/esm/script_signature.js
 var ZERO = new Uint8Array(1);
 function toDER(x) {
   let i = 0;
@@ -11940,7 +11940,7 @@ function encode4(signature2, hashType) {
   return concat([encode(r, s), hashTypeBuffer]);
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/script.js
+// node_modules/bitcoinjs-lib/src/esm/script.js
 var OP_INT_BASE = OPS.OP_RESERVED;
 var StackSchema = array(union([instance(Uint8Array), number()]));
 function isOPInt(value2) {
@@ -12069,7 +12069,7 @@ function isCanonicalScriptSignature(buffer) {
 }
 var signature = script_signature_exports;
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/lazy.js
+// node_modules/bitcoinjs-lib/src/esm/payments/lazy.js
 function prop(object2, name, f) {
   Object.defineProperty(object2, name, {
     configurable: true,
@@ -12098,7 +12098,7 @@ function value(f) {
   };
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/embed.js
+// node_modules/bitcoinjs-lib/src/esm/payments/embed.js
 var OPS2 = OPS;
 function p2data(a, opts) {
   if (!a.data && !a.output) throw new TypeError("Not enough data");
@@ -12136,7 +12136,7 @@ function p2data(a, opts) {
   return Object.assign(o, a);
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/p2ms.js
+// node_modules/bitcoinjs-lib/src/esm/payments/p2ms.js
 var OPS3 = OPS;
 var OP_INT_BASE2 = OPS3.OP_RESERVED;
 function encodeSmallOrScriptNum(n) {
@@ -12278,7 +12278,7 @@ function p2ms(a, opts) {
   return Object.assign(o, a);
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/p2pk.js
+// node_modules/bitcoinjs-lib/src/esm/payments/p2pk.js
 var OPS4 = OPS;
 function p2pk(a, opts) {
   if (!a.input && !a.output && !a.pubkey && !a.input && !a.signature)
@@ -12345,7 +12345,7 @@ function p2pk(a, opts) {
   return Object.assign(o, a);
 }
 
-// node_modules/@noble/hashes/esm/utils.js
+// ../../node_modules/@noble/hashes/esm/utils.js
 function isBytes6(a) {
   return a instanceof Uint8Array || ArrayBuffer.isView(a) && a.constructor.name === "Uint8Array";
 }
@@ -12404,7 +12404,7 @@ function createHasher4(hashCons) {
   return hashC;
 }
 
-// node_modules/@noble/hashes/esm/_md.js
+// ../../node_modules/@noble/hashes/esm/_md.js
 function setBigUint64(view, byteOffset, value2, isLE) {
   if (typeof view.setBigUint64 === "function")
     return view.setBigUint64(byteOffset, value2, isLE);
@@ -12524,7 +12524,7 @@ var SHA256_IV4 = /* @__PURE__ */ Uint32Array.from([
   1541459225
 ]);
 
-// node_modules/@noble/hashes/esm/legacy.js
+// ../../node_modules/@noble/hashes/esm/legacy.js
 var Rho1602 = /* @__PURE__ */ Uint8Array.from([
   7,
   4,
@@ -12642,10 +12642,10 @@ var RIPEMD160 = class extends HashMD4 {
 };
 var ripemd1602 = /* @__PURE__ */ createHasher4(() => new RIPEMD160());
 
-// node_modules/@noble/hashes/esm/ripemd160.js
+// ../../node_modules/@noble/hashes/esm/ripemd160.js
 var ripemd1603 = ripemd1602;
 
-// node_modules/@noble/hashes/esm/sha2.js
+// ../../node_modules/@noble/hashes/esm/sha2.js
 var SHA256_K4 = /* @__PURE__ */ Uint32Array.from([
   1116352408,
   1899447441,
@@ -12785,10 +12785,10 @@ var SHA256 = class extends HashMD4 {
 };
 var sha2564 = /* @__PURE__ */ createHasher4(() => new SHA256());
 
-// node_modules/@noble/hashes/esm/sha256.js
+// ../../node_modules/@noble/hashes/esm/sha256.js
 var sha2565 = sha2564;
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/crypto.js
+// node_modules/bitcoinjs-lib/src/esm/crypto.js
 function hash1602(buffer) {
   return ripemd1603(sha2565(buffer));
 }
@@ -13395,7 +13395,7 @@ function taggedHash(prefix, data) {
   return sha2565(concat([TAGGED_HASH_PREFIXES[prefix], data]));
 }
 
-// apps/frontend/node_modules/base-x/src/esm/index.js
+// node_modules/base-x/src/esm/index.js
 function base(ALPHABET2) {
   if (ALPHABET2.length >= 255) {
     throw new TypeError("Alphabet too long");
@@ -13526,11 +13526,11 @@ function base(ALPHABET2) {
 }
 var esm_default = base;
 
-// apps/frontend/node_modules/bs58/src/esm/index.js
+// node_modules/bs58/src/esm/index.js
 var ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
 var esm_default2 = esm_default(ALPHABET);
 
-// apps/frontend/node_modules/bs58check/src/esm/base.js
+// node_modules/bs58check/src/esm/base.js
 function base_default(checksumFn) {
   function encode20(payload) {
     var payloadU8 = Uint8Array.from(payload);
@@ -13569,13 +13569,13 @@ function base_default(checksumFn) {
   };
 }
 
-// apps/frontend/node_modules/bs58check/src/esm/index.js
+// node_modules/bs58check/src/esm/index.js
 function sha256x2(buffer) {
   return sha2565(sha2565(buffer));
 }
 var esm_default3 = base_default(sha256x2);
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/p2pkh.js
+// node_modules/bitcoinjs-lib/src/esm/payments/p2pkh.js
 var OPS5 = OPS;
 function p2pkh(a, opts) {
   if (!a.address && !a.hash && !a.output && !a.pubkey && !a.input)
@@ -13690,7 +13690,7 @@ function p2pkh(a, opts) {
   return Object.assign(o, a);
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/p2sh.js
+// node_modules/bitcoinjs-lib/src/esm/payments/p2sh.js
 var OPS6 = OPS;
 function p2sh(a, opts) {
   if (!a.address && !a.hash && !a.output && !a.redeem && !a.input)
@@ -13856,7 +13856,7 @@ function p2sh(a, opts) {
   return Object.assign(o, a);
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/p2wpkh.js
+// node_modules/bitcoinjs-lib/src/esm/payments/p2wpkh.js
 var import_bech32 = __toESM(require_dist(), 1);
 var OPS7 = OPS;
 var EMPTY_BUFFER = new Uint8Array(0);
@@ -13973,7 +13973,7 @@ function p2wpkh(a, opts) {
   return Object.assign(o, a);
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/p2wsh.js
+// node_modules/bitcoinjs-lib/src/esm/payments/p2wsh.js
 var import_bech322 = __toESM(require_dist(), 1);
 var OPS8 = OPS;
 var EMPTY_BUFFER2 = new Uint8Array(0);
@@ -14137,7 +14137,7 @@ function p2wsh(a, opts) {
   return Object.assign(o, a);
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/ecc_lib.js
+// node_modules/bitcoinjs-lib/src/esm/ecc_lib.js
 var _ECCLIB_CACHE = {};
 function getEccLib() {
   if (!_ECCLIB_CACHE.eccLib)
@@ -14147,7 +14147,7 @@ function getEccLib() {
   return _ECCLIB_CACHE.eccLib;
 }
 
-// apps/frontend/node_modules/varuint-bitcoin/src/esm/index.js
+// node_modules/varuint-bitcoin/src/esm/index.js
 var esm_exports = {};
 __export(esm_exports, {
   decode: () => decode5,
@@ -14155,7 +14155,7 @@ __export(esm_exports, {
   encodingLength: () => encodingLength2
 });
 
-// apps/frontend/node_modules/varuint-bitcoin/node_modules/uint8array-tools/src/mjs/browser.js
+// node_modules/varuint-bitcoin/node_modules/uint8array-tools/src/mjs/browser.js
 var HEX_STRINGS2 = "0123456789abcdefABCDEF";
 var HEX_CODES2 = HEX_STRINGS2.split("").map((c) => c.codePointAt(0));
 var HEX_CODEPOINTS2 = Array(256).fill(true).map((_, i) => {
@@ -14297,7 +14297,7 @@ function readUInt64(buffer, offset, littleEndian) {
   }
 }
 
-// apps/frontend/node_modules/varuint-bitcoin/src/esm/index.js
+// node_modules/varuint-bitcoin/src/esm/index.js
 var checkUInt64 = (n) => {
   if (n < 0 || n > 0xffffffffffffffffn) {
     throw new RangeError("value out of range");
@@ -14371,7 +14371,7 @@ function encodingLength2(n) {
   return n < 253 ? 1 : n <= 65535 ? 3 : n <= 4294967295 ? 5 : 9;
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/bufferutils.js
+// node_modules/bitcoinjs-lib/src/esm/bufferutils.js
 var MAX_JS_NUMBER = 9007199254740991;
 function verifuint(value2, max) {
   if (typeof value2 !== "number" && typeof value2 !== "bigint")
@@ -14512,7 +14512,7 @@ var BufferReader = class {
   }
 };
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/bip341.js
+// node_modules/bitcoinjs-lib/src/esm/payments/bip341.js
 var LEAF_VERSION_TAPSCRIPT = 192;
 var MAX_TAPTREE_DEPTH = 128;
 var isHashBranch = (ht) => "left" in ht && "right" in ht;
@@ -14590,7 +14590,7 @@ function serializeScript(s) {
   return concat([buffer, s]);
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/p2tr.js
+// node_modules/bitcoinjs-lib/src/esm/payments/p2tr.js
 var import_bech323 = __toESM(require_dist(), 1);
 var OPS9 = OPS;
 var TAPROOT_WITNESS_VERSION = 1;
@@ -14834,7 +14834,7 @@ function p2tr(a, opts) {
   return Object.assign(o, a);
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/address.js
+// node_modules/bitcoinjs-lib/src/esm/address.js
 var import_bech324 = __toESM(require_dist(), 1);
 var FUTURE_SEGWIT_MAX_SIZE = 40;
 var FUTURE_SEGWIT_MIN_SIZE = 2;
@@ -14965,7 +14965,7 @@ function toOutputScript(address, network) {
   throw new Error(address + " has no matching Script");
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/transaction.js
+// node_modules/bitcoinjs-lib/src/esm/transaction.js
 function varSliceSize(someScript) {
   const length2 = someScript.length;
   return esm_exports.encodingLength(length2) + length2;
@@ -15427,7 +15427,7 @@ var Transaction = class _Transaction {
   }
 };
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/block.js
+// node_modules/bitcoinjs-lib/src/esm/block.js
 var errorMerkleNoTxes = new TypeError(
   "Cannot compute merkle root for zero transactions"
 );
@@ -15435,7 +15435,7 @@ var errorWitnessNotSegwit = new TypeError(
   "Cannot compute witness commit for non-segwit block"
 );
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/index.js
+// node_modules/bip174/src/esm/lib/converter/index.js
 var converter_exports = {};
 __export(converter_exports, {
   globals: () => globals,
@@ -15443,7 +15443,7 @@ __export(converter_exports, {
   outputs: () => outputs
 });
 
-// apps/frontend/node_modules/bip174/src/esm/lib/typeFields.js
+// node_modules/bip174/src/esm/lib/typeFields.js
 var GlobalTypes;
 (function(GlobalTypes2) {
   GlobalTypes2[GlobalTypes2["UNSIGNED_TX"] = 0] = "UNSIGNED_TX";
@@ -15478,7 +15478,7 @@ var OutputTypes;
   OutputTypes2[OutputTypes2["TAP_BIP32_DERIVATION"] = 7] = "TAP_BIP32_DERIVATION";
 })(OutputTypes || (OutputTypes = {}));
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/global/globalXpub.js
+// node_modules/bip174/src/esm/lib/converter/global/globalXpub.js
 var globalXpub_exports = {};
 __export(globalXpub_exports, {
   canAddToArray: () => canAddToArray,
@@ -15551,7 +15551,7 @@ function canAddToArray(array2, item, dupeSet) {
   return array2.filter((v) => compare(v.extendedPubkey, item.extendedPubkey)).length === 0;
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/global/unsignedTx.js
+// node_modules/bip174/src/esm/lib/converter/global/unsignedTx.js
 var unsignedTx_exports = {};
 __export(unsignedTx_exports, {
   encode: () => encode7
@@ -15563,7 +15563,7 @@ function encode7(data) {
   };
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/finalScriptSig.js
+// node_modules/bip174/src/esm/lib/converter/input/finalScriptSig.js
 var finalScriptSig_exports = {};
 __export(finalScriptSig_exports, {
   canAdd: () => canAdd,
@@ -15595,7 +15595,7 @@ function canAdd(currentData, newData) {
   return !!currentData && !!newData && currentData.finalScriptSig === void 0;
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/finalScriptWitness.js
+// node_modules/bip174/src/esm/lib/converter/input/finalScriptWitness.js
 var finalScriptWitness_exports = {};
 __export(finalScriptWitness_exports, {
   canAdd: () => canAdd2,
@@ -15627,7 +15627,7 @@ function canAdd2(currentData, newData) {
   return !!currentData && !!newData && currentData.finalScriptWitness === void 0;
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/nonWitnessUtxo.js
+// node_modules/bip174/src/esm/lib/converter/input/nonWitnessUtxo.js
 var nonWitnessUtxo_exports = {};
 __export(nonWitnessUtxo_exports, {
   canAdd: () => canAdd3,
@@ -15658,7 +15658,7 @@ function canAdd3(currentData, newData) {
   return !!currentData && !!newData && currentData.nonWitnessUtxo === void 0;
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/partialSig.js
+// node_modules/bip174/src/esm/lib/converter/input/partialSig.js
 var partialSig_exports = {};
 __export(partialSig_exports, {
   canAddToArray: () => canAddToArray2,
@@ -15715,7 +15715,7 @@ function canAddToArray2(array2, item, dupeSet) {
   return array2.filter((v) => compare(v.pubkey, item.pubkey) === 0).length === 0;
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/porCommitment.js
+// node_modules/bip174/src/esm/lib/converter/input/porCommitment.js
 var porCommitment_exports = {};
 __export(porCommitment_exports, {
   canAdd: () => canAdd4,
@@ -15747,7 +15747,7 @@ function canAdd4(currentData, newData) {
   return !!currentData && !!newData && currentData.porCommitment === void 0;
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/sighashType.js
+// node_modules/bip174/src/esm/lib/converter/input/sighashType.js
 var sighashType_exports = {};
 __export(sighashType_exports, {
   canAdd: () => canAdd5,
@@ -15781,7 +15781,7 @@ function canAdd5(currentData, newData) {
   return !!currentData && !!newData && currentData.sighashType === void 0;
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/tapKeySig.js
+// node_modules/bip174/src/esm/lib/converter/input/tapKeySig.js
 var tapKeySig_exports = {};
 __export(tapKeySig_exports, {
   canAdd: () => canAdd6,
@@ -15815,7 +15815,7 @@ function canAdd6(currentData, newData) {
   return !!currentData && !!newData && currentData.tapKeySig === void 0;
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/tapLeafScript.js
+// node_modules/bip174/src/esm/lib/converter/input/tapLeafScript.js
 var tapLeafScript_exports = {};
 __export(tapLeafScript_exports, {
   canAddToArray: () => canAddToArray3,
@@ -15864,7 +15864,7 @@ function canAddToArray3(array2, item, dupeSet) {
   return array2.filter((v) => compare(v.controlBlock, item.controlBlock) === 0).length === 0;
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/tapMerkleRoot.js
+// node_modules/bip174/src/esm/lib/converter/input/tapMerkleRoot.js
 var tapMerkleRoot_exports = {};
 __export(tapMerkleRoot_exports, {
   canAdd: () => canAdd7,
@@ -15896,7 +15896,7 @@ function canAdd7(currentData, newData) {
   return !!currentData && !!newData && currentData.tapMerkleRoot === void 0;
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/tapScriptSig.js
+// node_modules/bip174/src/esm/lib/converter/input/tapScriptSig.js
 var tapScriptSig_exports = {};
 __export(tapScriptSig_exports, {
   canAddToArray: () => canAddToArray4,
@@ -15949,7 +15949,7 @@ function canAddToArray4(array2, item, dupeSet) {
   ).length === 0;
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/witnessUtxo.js
+// node_modules/bip174/src/esm/lib/converter/input/witnessUtxo.js
 var witnessUtxo_exports = {};
 __export(witnessUtxo_exports, {
   canAdd: () => canAdd8,
@@ -16000,7 +16000,7 @@ function canAdd8(currentData, newData) {
   return !!currentData && !!newData && currentData.witnessUtxo === void 0;
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/output/tapTree.js
+// node_modules/bip174/src/esm/lib/converter/output/tapTree.js
 var tapTree_exports = {};
 __export(tapTree_exports, {
   canAdd: () => canAdd9,
@@ -16058,7 +16058,7 @@ function canAdd9(currentData, newData) {
   return !!currentData && !!newData && currentData.tapTree === void 0;
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/shared/bip32Derivation.js
+// node_modules/bip174/src/esm/lib/converter/shared/bip32Derivation.js
 var range2 = (n) => [...Array(n).keys()];
 var isValidDERKey = (pubkey) => pubkey.length === 33 && [2, 3].includes(pubkey[0]) || pubkey.length === 65 && 4 === pubkey[0];
 function makeConverter(TYPE_BYTE, isValidPubkey = isValidDERKey) {
@@ -16130,7 +16130,7 @@ function makeConverter(TYPE_BYTE, isValidPubkey = isValidDERKey) {
   };
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/shared/checkPubkey.js
+// node_modules/bip174/src/esm/lib/converter/shared/checkPubkey.js
 function makeChecker(pubkeyTypes) {
   return checkPubkey;
   function checkPubkey(keyVal) {
@@ -16147,7 +16147,7 @@ function makeChecker(pubkeyTypes) {
   }
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/shared/redeemScript.js
+// node_modules/bip174/src/esm/lib/converter/shared/redeemScript.js
 function makeConverter2(TYPE_BYTE) {
   function decode19(keyVal) {
     if (keyVal.key[0] !== TYPE_BYTE) {
@@ -16180,7 +16180,7 @@ function makeConverter2(TYPE_BYTE) {
   };
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/shared/tapBip32Derivation.js
+// node_modules/bip174/src/esm/lib/converter/shared/tapBip32Derivation.js
 var isValidBIP340Key = (pubkey) => pubkey.length === 32;
 function makeConverter3(TYPE_BYTE) {
   const parent = makeConverter(TYPE_BYTE, isValidBIP340Key);
@@ -16221,7 +16221,7 @@ function makeConverter3(TYPE_BYTE) {
   };
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/shared/tapInternalKey.js
+// node_modules/bip174/src/esm/lib/converter/shared/tapInternalKey.js
 function makeConverter4(TYPE_BYTE) {
   function decode19(keyVal) {
     if (keyVal.key[0] !== TYPE_BYTE || keyVal.key.length !== 1) {
@@ -16256,7 +16256,7 @@ function makeConverter4(TYPE_BYTE) {
   };
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/shared/witnessScript.js
+// node_modules/bip174/src/esm/lib/converter/shared/witnessScript.js
 function makeConverter5(TYPE_BYTE) {
   function decode19(keyVal) {
     if (keyVal.key[0] !== TYPE_BYTE) {
@@ -16289,7 +16289,7 @@ function makeConverter5(TYPE_BYTE) {
   };
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/index.js
+// node_modules/bip174/src/esm/lib/converter/index.js
 var globals = {
   unsignedTx: unsignedTx_exports,
   globalXpub: globalXpub_exports,
@@ -16332,7 +16332,7 @@ var outputs = {
   tapInternalKey: makeConverter4(OutputTypes.TAP_INTERNAL_KEY)
 };
 
-// apps/frontend/node_modules/bip174/src/esm/lib/converter/tools.js
+// node_modules/bip174/src/esm/lib/converter/tools.js
 var range3 = (n) => [...Array(n).keys()];
 function keyValsToBuffer(keyVals) {
   const buffers = keyVals.map(keyValToBuffer);
@@ -16352,7 +16352,7 @@ function keyValToBuffer(keyVal) {
   return buffer;
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/parser/fromBuffer.js
+// node_modules/bip174/src/esm/lib/parser/fromBuffer.js
 function psbtFromBuffer(buffer, txGetter) {
   let offset = 0;
   function varSlice() {
@@ -16658,7 +16658,7 @@ function psbtFromKeyVals(unsignedTx, { globalMapKeyVals, inputKeyVals, outputKey
   return { globalMap, inputs: inputs2, outputs: outputs2 };
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/parser/toBuffer.js
+// node_modules/bip174/src/esm/lib/parser/toBuffer.js
 function psbtToBuffer({ globalMap, inputs: inputs2, outputs: outputs2 }) {
   const { globalKeyVals, inputKeyVals, outputKeyVals } = psbtToKeyVals({
     globalMap,
@@ -16708,7 +16708,7 @@ function psbtToKeyVals({ globalMap, inputs: inputs2, outputs: outputs2 }) {
   };
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/combiner/index.js
+// node_modules/bip174/src/esm/lib/combiner/index.js
 function combine(psbts) {
   const self = psbts[0];
   const selfKeyVals = psbtToKeyVals(self);
@@ -16786,7 +16786,7 @@ function getKeySet(keyVals) {
   return set;
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/utils.js
+// node_modules/bip174/src/esm/lib/utils.js
 function checkForInput(inputs2, inputIndex) {
   const input = inputs2[inputIndex];
   if (input === void 0) throw new Error(`No input #${inputIndex}`);
@@ -16888,7 +16888,7 @@ function addOutputAttributes(outputs2, data) {
   updateOutput(data, output);
 }
 
-// apps/frontend/node_modules/bip174/src/esm/lib/psbt.js
+// node_modules/bip174/src/esm/lib/psbt.js
 var Psbt = class {
   constructor(tx) {
     this.inputs = [];
@@ -17018,7 +17018,7 @@ var Psbt = class {
   }
 };
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/psbt/psbtutils.js
+// node_modules/bitcoinjs-lib/src/esm/psbt/psbtutils.js
 function isPaymentFactory(payment) {
   return (script) => {
     try {
@@ -17115,7 +17115,7 @@ function getPsigsFromInputFinalScripts(input) {
   }).map((sig) => ({ signature: sig }));
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/psbt/bip371.js
+// node_modules/bitcoinjs-lib/src/esm/psbt/bip371.js
 var toXOnly = (pubKey) => pubKey.length === 32 ? pubKey : pubKey.slice(1, 33);
 function tapScriptFinalizer(inputIndex, input, tapLeafHashToFinalize) {
   const tapLeaf = findTapLeafToFinalize(
@@ -17318,7 +17318,7 @@ function hasNonTaprootFields(io) {
   return io && !!(io.redeemScript || io.witnessScript || io.bip32Derivation && io.bip32Derivation.length);
 }
 
-// apps/frontend/node_modules/bitcoinjs-lib/src/esm/psbt.js
+// node_modules/bitcoinjs-lib/src/esm/psbt.js
 var DEFAULT_OPTS = {
   /**
    * A bitcoinjs Network object. This is only used if you pass an `address`
@@ -18815,12 +18815,12 @@ function range4(n) {
   return [...Array(n).keys()];
 }
 
-// apps/frontend/client/scripts/pages/donate.js
+// client/scripts/pages/donate.js
 var import_qrcode = __toESM(require_browser(), 1);
 
-// apps/frontend/client/scripts/config.js
+// client/scripts/config.js
 var CLIENT_CONFIG = {
-  backendEndpoint: "http://localhost:3001",
+  backendEndpoint: "https://newfreebitcoins.com",
   electrum: {
     mainnet: {
       host: "electrum.blockstream.info",
@@ -18835,7 +18835,7 @@ var CLIENT_CONFIG = {
   }
 };
 
-// apps/frontend/client/scripts/consts.js
+// client/scripts/consts.js
 var BACKEND_ENDPOINT = CLIENT_CONFIG.backendEndpoint;
 var NETWORK_CONFIG = {
   mainnet: {
@@ -18869,7 +18869,7 @@ function isLikelyAddressForNetwork(value2, network) {
   return /^(bc1|[13])[a-zA-HJ-NP-Z0-9]{20,90}$/.test(trimmed);
 }
 
-// apps/frontend/client/scripts/api.js
+// client/scripts/api.js
 async function parseJson(response) {
   const contentType = response.headers.get("content-type") ?? "";
   if (!contentType.includes("application/json")) {
@@ -18879,7 +18879,10 @@ async function parseJson(response) {
 }
 async function getJson(url) {
   try {
-    const response = await fetch(url);
+    const response = await fetch(url, {
+      cache: "no-store",
+      credentials: "include"
+    });
     const payload = await parseJson(response);
     if (!response.ok) {
       return {
@@ -18903,6 +18906,8 @@ async function postJson(url, payload) {
   try {
     const response = await fetch(url, {
       method: "POST",
+      cache: "no-store",
+      credentials: "include",
       headers: {
         "Content-Type": "application/json"
       },
@@ -19008,7 +19013,7 @@ async function sendDonationHeartbeat(payload) {
   };
 }
 
-// apps/frontend/client/scripts/pages/donate.js
+// client/scripts/pages/donate.js
 var STORAGE_KEY = "donationWallet";
 var DUST_THRESHOLD = 546;
 var WALLET_AUTO_REFRESH_MS = 1e4;
