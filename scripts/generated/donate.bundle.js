@@ -28,9 +28,9 @@ var __toESM = (mod2, isNodeMode, target) => (target = mod2 != null ? __create(__
   mod2
 ));
 
-// ../../node_modules/base64-js/index.js
+// node_modules/base64-js/index.js
 var require_base64_js = __commonJS({
-  "../../node_modules/base64-js/index.js"(exports) {
+  "node_modules/base64-js/index.js"(exports) {
     "use strict";
     exports.byteLength = byteLength;
     exports.toByteArray = toByteArray;
@@ -129,9 +129,9 @@ var require_base64_js = __commonJS({
   }
 });
 
-// ../../node_modules/ieee754/index.js
+// node_modules/ieee754/index.js
 var require_ieee754 = __commonJS({
-  "../../node_modules/ieee754/index.js"(exports) {
+  "node_modules/ieee754/index.js"(exports) {
     exports.read = function(buffer, offset, isLE, mLen, nBytes) {
       var e, m;
       var eLen = nBytes * 8 - mLen - 1;
@@ -212,9 +212,9 @@ var require_ieee754 = __commonJS({
   }
 });
 
-// node_modules/buffer/index.js
+// apps/frontend/node_modules/buffer/index.js
 var require_buffer = __commonJS({
-  "node_modules/buffer/index.js"(exports) {
+  "apps/frontend/node_modules/buffer/index.js"(exports) {
     "use strict";
     var base64 = require_base64_js();
     var ieee754 = require_ieee754();
@@ -1804,9 +1804,9 @@ var require_buffer = __commonJS({
   }
 });
 
-// ../../node_modules/bech32/dist/index.js
+// node_modules/bech32/dist/index.js
 var require_dist = __commonJS({
-  "../../node_modules/bech32/dist/index.js"(exports) {
+  "node_modules/bech32/dist/index.js"(exports) {
     "use strict";
     Object.defineProperty(exports, "__esModule", { value: true });
     exports.bech32m = exports.bech32 = void 0;
@@ -1970,18 +1970,18 @@ var require_dist = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/can-promise.js
+// node_modules/qrcode/lib/can-promise.js
 var require_can_promise = __commonJS({
-  "../../node_modules/qrcode/lib/can-promise.js"(exports, module) {
+  "node_modules/qrcode/lib/can-promise.js"(exports, module) {
     module.exports = function() {
       return typeof Promise === "function" && Promise.prototype && Promise.prototype.then;
     };
   }
 });
 
-// ../../node_modules/qrcode/lib/core/utils.js
+// node_modules/qrcode/lib/core/utils.js
 var require_utils = __commonJS({
-  "../../node_modules/qrcode/lib/core/utils.js"(exports) {
+  "node_modules/qrcode/lib/core/utils.js"(exports) {
     var toSJISFunction;
     var CODEWORDS_COUNT = [
       0,
@@ -2058,9 +2058,9 @@ var require_utils = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/error-correction-level.js
+// node_modules/qrcode/lib/core/error-correction-level.js
 var require_error_correction_level = __commonJS({
-  "../../node_modules/qrcode/lib/core/error-correction-level.js"(exports) {
+  "node_modules/qrcode/lib/core/error-correction-level.js"(exports) {
     exports.L = { bit: 1 };
     exports.M = { bit: 0 };
     exports.Q = { bit: 3 };
@@ -2103,9 +2103,9 @@ var require_error_correction_level = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/bit-buffer.js
+// node_modules/qrcode/lib/core/bit-buffer.js
 var require_bit_buffer = __commonJS({
-  "../../node_modules/qrcode/lib/core/bit-buffer.js"(exports, module) {
+  "node_modules/qrcode/lib/core/bit-buffer.js"(exports, module) {
     function BitBuffer() {
       this.buffer = [];
       this.length = 0;
@@ -2138,9 +2138,9 @@ var require_bit_buffer = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/bit-matrix.js
+// node_modules/qrcode/lib/core/bit-matrix.js
 var require_bit_matrix = __commonJS({
-  "../../node_modules/qrcode/lib/core/bit-matrix.js"(exports, module) {
+  "node_modules/qrcode/lib/core/bit-matrix.js"(exports, module) {
     function BitMatrix(size) {
       if (!size || size < 1) {
         throw new Error("BitMatrix size must be defined and greater than 0");
@@ -2167,9 +2167,9 @@ var require_bit_matrix = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/alignment-pattern.js
+// node_modules/qrcode/lib/core/alignment-pattern.js
 var require_alignment_pattern = __commonJS({
-  "../../node_modules/qrcode/lib/core/alignment-pattern.js"(exports) {
+  "node_modules/qrcode/lib/core/alignment-pattern.js"(exports) {
     var getSymbolSize = require_utils().getSymbolSize;
     exports.getRowColCoords = function getRowColCoords(version) {
       if (version === 1) return [];
@@ -2202,9 +2202,9 @@ var require_alignment_pattern = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/finder-pattern.js
+// node_modules/qrcode/lib/core/finder-pattern.js
 var require_finder_pattern = __commonJS({
-  "../../node_modules/qrcode/lib/core/finder-pattern.js"(exports) {
+  "node_modules/qrcode/lib/core/finder-pattern.js"(exports) {
     var getSymbolSize = require_utils().getSymbolSize;
     var FINDER_PATTERN_SIZE = 7;
     exports.getPositions = function getPositions(version) {
@@ -2221,9 +2221,9 @@ var require_finder_pattern = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/mask-pattern.js
+// node_modules/qrcode/lib/core/mask-pattern.js
 var require_mask_pattern = __commonJS({
-  "../../node_modules/qrcode/lib/core/mask-pattern.js"(exports) {
+  "node_modules/qrcode/lib/core/mask-pattern.js"(exports) {
     exports.Patterns = {
       PATTERN000: 0,
       PATTERN001: 1,
@@ -2363,9 +2363,9 @@ var require_mask_pattern = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/error-correction-code.js
+// node_modules/qrcode/lib/core/error-correction-code.js
 var require_error_correction_code = __commonJS({
-  "../../node_modules/qrcode/lib/core/error-correction-code.js"(exports) {
+  "node_modules/qrcode/lib/core/error-correction-code.js"(exports) {
     var ECLevel = require_error_correction_level();
     var EC_BLOCKS_TABLE = [
       // L  M  Q  H
@@ -2724,9 +2724,9 @@ var require_error_correction_code = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/galois-field.js
+// node_modules/qrcode/lib/core/galois-field.js
 var require_galois_field = __commonJS({
-  "../../node_modules/qrcode/lib/core/galois-field.js"(exports) {
+  "node_modules/qrcode/lib/core/galois-field.js"(exports) {
     var EXP_TABLE = new Uint8Array(512);
     var LOG_TABLE = new Uint8Array(256);
     (function initTables() {
@@ -2757,9 +2757,9 @@ var require_galois_field = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/polynomial.js
+// node_modules/qrcode/lib/core/polynomial.js
 var require_polynomial = __commonJS({
-  "../../node_modules/qrcode/lib/core/polynomial.js"(exports) {
+  "node_modules/qrcode/lib/core/polynomial.js"(exports) {
     var GF = require_galois_field();
     exports.mul = function mul(p1, p2) {
       const coeff = new Uint8Array(p1.length + p2.length - 1);
@@ -2793,9 +2793,9 @@ var require_polynomial = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/reed-solomon-encoder.js
+// node_modules/qrcode/lib/core/reed-solomon-encoder.js
 var require_reed_solomon_encoder = __commonJS({
-  "../../node_modules/qrcode/lib/core/reed-solomon-encoder.js"(exports, module) {
+  "node_modules/qrcode/lib/core/reed-solomon-encoder.js"(exports, module) {
     var Polynomial = require_polynomial();
     function ReedSolomonEncoder(degree) {
       this.genPoly = void 0;
@@ -2825,18 +2825,18 @@ var require_reed_solomon_encoder = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/version-check.js
+// node_modules/qrcode/lib/core/version-check.js
 var require_version_check = __commonJS({
-  "../../node_modules/qrcode/lib/core/version-check.js"(exports) {
+  "node_modules/qrcode/lib/core/version-check.js"(exports) {
     exports.isValid = function isValid(version) {
       return !isNaN(version) && version >= 1 && version <= 40;
     };
   }
 });
 
-// ../../node_modules/qrcode/lib/core/regex.js
+// node_modules/qrcode/lib/core/regex.js
 var require_regex = __commonJS({
-  "../../node_modules/qrcode/lib/core/regex.js"(exports) {
+  "node_modules/qrcode/lib/core/regex.js"(exports) {
     var numeric = "[0-9]+";
     var alphanumeric = "[A-Z $%*+\\-./:]+";
     var kanji = "(?:[u3000-u303F]|[u3040-u309F]|[u30A0-u30FF]|[uFF00-uFFEF]|[u4E00-u9FAF]|[u2605-u2606]|[u2190-u2195]|u203B|[u2010u2015u2018u2019u2025u2026u201Cu201Du2225u2260]|[u0391-u0451]|[u00A7u00A8u00B1u00B4u00D7u00F7])+";
@@ -2862,9 +2862,9 @@ var require_regex = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/mode.js
+// node_modules/qrcode/lib/core/mode.js
 var require_mode = __commonJS({
-  "../../node_modules/qrcode/lib/core/mode.js"(exports) {
+  "node_modules/qrcode/lib/core/mode.js"(exports) {
     var VersionCheck = require_version_check();
     var Regex = require_regex();
     exports.NUMERIC = {
@@ -2943,9 +2943,9 @@ var require_mode = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/version.js
+// node_modules/qrcode/lib/core/version.js
 var require_version = __commonJS({
-  "../../node_modules/qrcode/lib/core/version.js"(exports) {
+  "node_modules/qrcode/lib/core/version.js"(exports) {
     var Utils = require_utils();
     var ECCode = require_error_correction_code();
     var ECLevel = require_error_correction_level();
@@ -3038,9 +3038,9 @@ var require_version = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/format-info.js
+// node_modules/qrcode/lib/core/format-info.js
 var require_format_info = __commonJS({
-  "../../node_modules/qrcode/lib/core/format-info.js"(exports) {
+  "node_modules/qrcode/lib/core/format-info.js"(exports) {
     var Utils = require_utils();
     var G15 = 1 << 10 | 1 << 8 | 1 << 5 | 1 << 4 | 1 << 2 | 1 << 1 | 1 << 0;
     var G15_MASK = 1 << 14 | 1 << 12 | 1 << 10 | 1 << 4 | 1 << 1;
@@ -3056,9 +3056,9 @@ var require_format_info = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/numeric-data.js
+// node_modules/qrcode/lib/core/numeric-data.js
 var require_numeric_data = __commonJS({
-  "../../node_modules/qrcode/lib/core/numeric-data.js"(exports, module) {
+  "node_modules/qrcode/lib/core/numeric-data.js"(exports, module) {
     var Mode = require_mode();
     function NumericData(data) {
       this.mode = Mode.NUMERIC;
@@ -3091,9 +3091,9 @@ var require_numeric_data = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/alphanumeric-data.js
+// node_modules/qrcode/lib/core/alphanumeric-data.js
 var require_alphanumeric_data = __commonJS({
-  "../../node_modules/qrcode/lib/core/alphanumeric-data.js"(exports, module) {
+  "node_modules/qrcode/lib/core/alphanumeric-data.js"(exports, module) {
     var Mode = require_mode();
     var ALPHA_NUM_CHARS = [
       "0",
@@ -3170,9 +3170,9 @@ var require_alphanumeric_data = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/byte-data.js
+// node_modules/qrcode/lib/core/byte-data.js
 var require_byte_data = __commonJS({
-  "../../node_modules/qrcode/lib/core/byte-data.js"(exports, module) {
+  "node_modules/qrcode/lib/core/byte-data.js"(exports, module) {
     var Mode = require_mode();
     function ByteData(data) {
       this.mode = Mode.BYTE;
@@ -3200,9 +3200,9 @@ var require_byte_data = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/kanji-data.js
+// node_modules/qrcode/lib/core/kanji-data.js
 var require_kanji_data = __commonJS({
-  "../../node_modules/qrcode/lib/core/kanji-data.js"(exports, module) {
+  "node_modules/qrcode/lib/core/kanji-data.js"(exports, module) {
     var Mode = require_mode();
     var Utils = require_utils();
     function KanjiData(data) {
@@ -3239,9 +3239,9 @@ var require_kanji_data = __commonJS({
   }
 });
 
-// ../../node_modules/dijkstrajs/dijkstra.js
+// node_modules/dijkstrajs/dijkstra.js
 var require_dijkstra = __commonJS({
-  "../../node_modules/dijkstrajs/dijkstra.js"(exports, module) {
+  "node_modules/dijkstrajs/dijkstra.js"(exports, module) {
     "use strict";
     var dijkstra = {
       single_source_shortest_paths: function(graph, s, d) {
@@ -3340,9 +3340,9 @@ var require_dijkstra = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/segments.js
+// node_modules/qrcode/lib/core/segments.js
 var require_segments = __commonJS({
-  "../../node_modules/qrcode/lib/core/segments.js"(exports) {
+  "node_modules/qrcode/lib/core/segments.js"(exports) {
     var Mode = require_mode();
     var NumericData = require_numeric_data();
     var AlphanumericData = require_alphanumeric_data();
@@ -3526,9 +3526,9 @@ var require_segments = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/core/qrcode.js
+// node_modules/qrcode/lib/core/qrcode.js
 var require_qrcode = __commonJS({
-  "../../node_modules/qrcode/lib/core/qrcode.js"(exports) {
+  "node_modules/qrcode/lib/core/qrcode.js"(exports) {
     var Utils = require_utils();
     var ECLevel = require_error_correction_level();
     var BitBuffer = require_bit_buffer();
@@ -3787,9 +3787,9 @@ var require_qrcode = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/renderer/utils.js
+// node_modules/qrcode/lib/renderer/utils.js
 var require_utils2 = __commonJS({
-  "../../node_modules/qrcode/lib/renderer/utils.js"(exports) {
+  "node_modules/qrcode/lib/renderer/utils.js"(exports) {
     function hex2rgba(hex) {
       if (typeof hex === "number") {
         hex = hex.toString();
@@ -3867,9 +3867,9 @@ var require_utils2 = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/renderer/canvas.js
+// node_modules/qrcode/lib/renderer/canvas.js
 var require_canvas = __commonJS({
-  "../../node_modules/qrcode/lib/renderer/canvas.js"(exports) {
+  "node_modules/qrcode/lib/renderer/canvas.js"(exports) {
     var Utils = require_utils2();
     function clearCanvas(ctx, canvas, size) {
       ctx.clearRect(0, 0, canvas.width, canvas.height);
@@ -3920,9 +3920,9 @@ var require_canvas = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/renderer/svg-tag.js
+// node_modules/qrcode/lib/renderer/svg-tag.js
 var require_svg_tag = __commonJS({
-  "../../node_modules/qrcode/lib/renderer/svg-tag.js"(exports) {
+  "node_modules/qrcode/lib/renderer/svg-tag.js"(exports) {
     var Utils = require_utils2();
     function getColorAttrib(color, attrib) {
       const alpha = color.a / 255;
@@ -3978,9 +3978,9 @@ var require_svg_tag = __commonJS({
   }
 });
 
-// ../../node_modules/qrcode/lib/browser.js
+// node_modules/qrcode/lib/browser.js
 var require_browser = __commonJS({
-  "../../node_modules/qrcode/lib/browser.js"(exports) {
+  "node_modules/qrcode/lib/browser.js"(exports) {
     var canPromise = require_can_promise();
     var QRCode2 = require_qrcode();
     var CanvasRenderer = require_canvas();
@@ -4048,10 +4048,10 @@ var require_browser = __commonJS({
   }
 });
 
-// client/scripts/pages/donate.js
+// apps/frontend/client/scripts/pages/donate.js
 var import_buffer = __toESM(require_buffer(), 1);
 
-// ../../node_modules/@noble/curves/node_modules/@noble/hashes/utils.js
+// node_modules/@noble/curves/node_modules/@noble/hashes/utils.js
 function isBytes(a) {
   return a instanceof Uint8Array || ArrayBuffer.isView(a) && a.constructor.name === "Uint8Array";
 }
@@ -4183,7 +4183,7 @@ var oidNist = (suffix) => ({
   oid: Uint8Array.from([6, 9, 96, 134, 72, 1, 101, 3, 4, 2, suffix])
 });
 
-// ../../node_modules/@noble/curves/node_modules/@noble/hashes/_md.js
+// node_modules/@noble/curves/node_modules/@noble/hashes/_md.js
 function Chi(a, b, c) {
   return a & b ^ ~a & c;
 }
@@ -4296,7 +4296,7 @@ var SHA256_IV = /* @__PURE__ */ Uint32Array.from([
   1541459225
 ]);
 
-// ../../node_modules/@noble/curves/node_modules/@noble/hashes/sha2.js
+// node_modules/@noble/curves/node_modules/@noble/hashes/sha2.js
 var SHA256_K = /* @__PURE__ */ Uint32Array.from([
   1116352408,
   1899447441,
@@ -4446,7 +4446,7 @@ var sha256 = /* @__PURE__ */ createHasher(
   /* @__PURE__ */ oidNist(1)
 );
 
-// ../../node_modules/@noble/curves/utils.js
+// node_modules/@noble/curves/utils.js
 var _0n = /* @__PURE__ */ BigInt(0);
 var _1n = /* @__PURE__ */ BigInt(1);
 function abool(value2, title = "") {
@@ -4586,7 +4586,7 @@ function memoized(fn) {
   };
 }
 
-// ../../node_modules/@noble/curves/abstract/modular.js
+// node_modules/@noble/curves/abstract/modular.js
 var _0n2 = /* @__PURE__ */ BigInt(0);
 var _1n2 = /* @__PURE__ */ BigInt(1);
 var _2n = /* @__PURE__ */ BigInt(2);
@@ -4972,7 +4972,7 @@ function mapHashToField(key, fieldOrder, isLE = false) {
   return isLE ? numberToBytesLE(reduced, fieldLen) : numberToBytesBE(reduced, fieldLen);
 }
 
-// ../../node_modules/@noble/curves/abstract/curve.js
+// node_modules/@noble/curves/abstract/curve.js
 var _0n3 = /* @__PURE__ */ BigInt(0);
 var _1n3 = /* @__PURE__ */ BigInt(1);
 function negateCt(condition, item) {
@@ -5205,7 +5205,7 @@ function createKeygen(randomSecretKey, getPublicKey) {
   };
 }
 
-// ../../node_modules/@noble/curves/node_modules/@noble/hashes/hmac.js
+// node_modules/@noble/curves/node_modules/@noble/hashes/hmac.js
 var _HMAC = class {
   oHash;
   iHash;
@@ -5276,7 +5276,7 @@ var _HMAC = class {
 var hmac = (hash, key, message) => new _HMAC(hash, key).update(message).digest();
 hmac.create = (hash, key) => new _HMAC(hash, key);
 
-// ../../node_modules/@noble/curves/abstract/weierstrass.js
+// node_modules/@noble/curves/abstract/weierstrass.js
 var divNearest = (num, den) => (num + (num >= 0 ? den : -den) / _2n2) / den;
 function _splitEndoScalar(k, basis, n) {
   const [[a1, b1], [a2, b2]] = basis;
@@ -6148,7 +6148,7 @@ function ecdsa(Point2, hash, ecdsaOpts = {}) {
   });
 }
 
-// ../../node_modules/@noble/curves/secp256k1.js
+// node_modules/@noble/curves/secp256k1.js
 var secp256k1_CURVE = {
   p: BigInt("0xfffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f"),
   n: BigInt("0xfffffffffffffffffffffffffffffffebaaedce6af48a03bbfd25e8cd0364141"),
@@ -6195,7 +6195,7 @@ var Pointk1 = /* @__PURE__ */ weierstrass(secp256k1_CURVE, {
 });
 var secp256k1 = /* @__PURE__ */ ecdsa(Pointk1, sha256);
 
-// ../../node_modules/@scure/bip32/node_modules/@noble/hashes/utils.js
+// node_modules/@scure/bip32/node_modules/@noble/hashes/utils.js
 function isBytes2(a) {
   return a instanceof Uint8Array || ArrayBuffer.isView(a) && a.constructor.name === "Uint8Array";
 }
@@ -6278,7 +6278,7 @@ var oidNist2 = (suffix) => ({
   oid: Uint8Array.from([6, 9, 96, 134, 72, 1, 101, 3, 4, 2, suffix])
 });
 
-// ../../node_modules/@scure/bip32/node_modules/@noble/hashes/hmac.js
+// node_modules/@scure/bip32/node_modules/@noble/hashes/hmac.js
 var _HMAC2 = class {
   oHash;
   iHash;
@@ -6349,7 +6349,7 @@ var _HMAC2 = class {
 var hmac2 = (hash, key, message) => new _HMAC2(hash, key).update(message).digest();
 hmac2.create = (hash, key) => new _HMAC2(hash, key);
 
-// ../../node_modules/@scure/bip32/node_modules/@noble/hashes/_md.js
+// node_modules/@scure/bip32/node_modules/@noble/hashes/_md.js
 function Chi2(a, b, c) {
   return a & b ^ ~a & c;
 }
@@ -6480,7 +6480,7 @@ var SHA512_IV2 = /* @__PURE__ */ Uint32Array.from([
   327033209
 ]);
 
-// ../../node_modules/@scure/bip32/node_modules/@noble/hashes/legacy.js
+// node_modules/@scure/bip32/node_modules/@noble/hashes/legacy.js
 var Rho160 = /* @__PURE__ */ Uint8Array.from([
   7,
   4,
@@ -6598,7 +6598,7 @@ var _RIPEMD160 = class extends HashMD2 {
 };
 var ripemd160 = /* @__PURE__ */ createHasher2(() => new _RIPEMD160());
 
-// ../../node_modules/@scure/bip32/node_modules/@noble/hashes/_u64.js
+// node_modules/@scure/bip32/node_modules/@noble/hashes/_u64.js
 var U32_MASK64 = /* @__PURE__ */ BigInt(2 ** 32 - 1);
 var _32n = /* @__PURE__ */ BigInt(32);
 function fromBig(n, le = false) {
@@ -6633,7 +6633,7 @@ var add4H = (low, Ah, Bh, Ch, Dh) => Ah + Bh + Ch + Dh + (low / 2 ** 32 | 0) | 0
 var add5L = (Al, Bl, Cl, Dl, El) => (Al >>> 0) + (Bl >>> 0) + (Cl >>> 0) + (Dl >>> 0) + (El >>> 0);
 var add5H = (low, Ah, Bh, Ch, Dh, Eh) => Ah + Bh + Ch + Dh + Eh + (low / 2 ** 32 | 0) | 0;
 
-// ../../node_modules/@scure/bip32/node_modules/@noble/hashes/sha2.js
+// node_modules/@scure/bip32/node_modules/@noble/hashes/sha2.js
 var SHA256_K2 = /* @__PURE__ */ Uint32Array.from([
   1116352408,
   1899447441,
@@ -6989,7 +6989,7 @@ var sha512 = /* @__PURE__ */ createHasher2(
   /* @__PURE__ */ oidNist2(3)
 );
 
-// ../../node_modules/@scure/bip32/node_modules/@scure/base/index.js
+// node_modules/@scure/bip32/node_modules/@scure/base/index.js
 function isBytes3(a) {
   return a instanceof Uint8Array || ArrayBuffer.isView(a) && a.constructor.name === "Uint8Array";
 }
@@ -7173,7 +7173,7 @@ var genBase58 = /* @__NO_SIDE_EFFECTS__ */ (abc) => /* @__PURE__ */ chain(/* @__
 var base58 = /* @__PURE__ */ genBase58("123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz");
 var createBase58check = (sha2566) => /* @__PURE__ */ chain(checksum(4, (data) => sha2566(sha2566(data))), base58);
 
-// ../../node_modules/@scure/bip32/index.js
+// node_modules/@scure/bip32/index.js
 var Point = secp256k1.Point;
 var { Fn } = Point;
 var base58check = createBase58check(sha2562);
@@ -7406,7 +7406,7 @@ var HDKey = class _HDKey {
   }
 };
 
-// ../../node_modules/@scure/bip39/node_modules/@noble/hashes/utils.js
+// node_modules/@scure/bip39/node_modules/@noble/hashes/utils.js
 function isBytes4(a) {
   return a instanceof Uint8Array || ArrayBuffer.isView(a) && a.constructor.name === "Uint8Array";
 }
@@ -7493,7 +7493,7 @@ var oidNist3 = (suffix) => ({
   oid: Uint8Array.from([6, 9, 96, 134, 72, 1, 101, 3, 4, 2, suffix])
 });
 
-// ../../node_modules/@scure/bip39/node_modules/@noble/hashes/hmac.js
+// node_modules/@scure/bip39/node_modules/@noble/hashes/hmac.js
 var _HMAC3 = class {
   oHash;
   iHash;
@@ -7564,7 +7564,7 @@ var _HMAC3 = class {
 var hmac3 = (hash, key, message) => new _HMAC3(hash, key).update(message).digest();
 hmac3.create = (hash, key) => new _HMAC3(hash, key);
 
-// ../../node_modules/@scure/bip39/node_modules/@noble/hashes/pbkdf2.js
+// node_modules/@scure/bip39/node_modules/@noble/hashes/pbkdf2.js
 function pbkdf2Init(hash, _password, _salt, _opts) {
   ahash3(hash);
   const opts = checkOpts({ dkLen: 32, asyncTick: 10 }, _opts);
@@ -7609,7 +7609,7 @@ function pbkdf2(hash, password, salt, opts) {
   return pbkdf2Output(PRF, PRFSalt, DK, prfW, u);
 }
 
-// ../../node_modules/@scure/bip39/node_modules/@noble/hashes/_md.js
+// node_modules/@scure/bip39/node_modules/@noble/hashes/_md.js
 function Chi3(a, b, c) {
   return a & b ^ ~a & c;
 }
@@ -7740,7 +7740,7 @@ var SHA512_IV3 = /* @__PURE__ */ Uint32Array.from([
   327033209
 ]);
 
-// ../../node_modules/@scure/bip39/node_modules/@noble/hashes/_u64.js
+// node_modules/@scure/bip39/node_modules/@noble/hashes/_u64.js
 var U32_MASK642 = /* @__PURE__ */ BigInt(2 ** 32 - 1);
 var _32n2 = /* @__PURE__ */ BigInt(32);
 function fromBig2(n, le = false) {
@@ -7775,7 +7775,7 @@ var add4H2 = (low, Ah, Bh, Ch, Dh) => Ah + Bh + Ch + Dh + (low / 2 ** 32 | 0) | 
 var add5L2 = (Al, Bl, Cl, Dl, El) => (Al >>> 0) + (Bl >>> 0) + (Cl >>> 0) + (Dl >>> 0) + (El >>> 0);
 var add5H2 = (low, Ah, Bh, Ch, Dh, Eh) => Ah + Bh + Ch + Dh + Eh + (low / 2 ** 32 | 0) | 0;
 
-// ../../node_modules/@scure/bip39/node_modules/@noble/hashes/sha2.js
+// node_modules/@scure/bip39/node_modules/@noble/hashes/sha2.js
 var SHA256_K3 = /* @__PURE__ */ Uint32Array.from([
   1116352408,
   1899447441,
@@ -8131,7 +8131,7 @@ var sha5122 = /* @__PURE__ */ createHasher3(
   /* @__PURE__ */ oidNist3(3)
 );
 
-// ../../node_modules/@scure/bip39/node_modules/@scure/base/index.js
+// node_modules/@scure/bip39/node_modules/@scure/base/index.js
 function isBytes5(a) {
   return a instanceof Uint8Array || ArrayBuffer.isView(a) && a.constructor.name === "Uint8Array";
 }
@@ -8414,7 +8414,7 @@ var utils = {
   padding
 };
 
-// ../../node_modules/@scure/bip39/index.js
+// node_modules/@scure/bip39/index.js
 var isJapanese = (wordlist2) => wordlist2[0] === "\u3042\u3044\u3053\u304F\u3057\u3093";
 function nfkd(str) {
   if (typeof str !== "string")
@@ -8476,7 +8476,7 @@ function mnemonicToSeedSync(mnemonic, passphrase = "") {
   return pbkdf2(sha5122, normalize(mnemonic).nfkd, psalt(passphrase), { c: 2048, dkLen: 64 });
 }
 
-// ../../node_modules/@scure/bip39/wordlists/english.js
+// node_modules/@scure/bip39/wordlists/english.js
 var wordlist = `abandon
 ability
 able
@@ -10526,7 +10526,7 @@ zero
 zone
 zoo`.split("\n");
 
-// node_modules/bitcoinjs-lib/src/esm/networks.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/networks.js
 var networks_exports = {};
 __export(networks_exports, {
   bitcoin: () => bitcoin,
@@ -10591,7 +10591,7 @@ var testnet = {
   wif: 239
 };
 
-// node_modules/bitcoinjs-lib/src/esm/payments/index.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/index.js
 var payments_exports = {};
 __export(payments_exports, {
   embed: () => p2data,
@@ -10604,7 +10604,7 @@ __export(payments_exports, {
   p2wsh: () => p2wsh
 });
 
-// node_modules/bitcoinjs-lib/src/esm/bip66.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/bip66.js
 function check(buffer) {
   if (buffer.length < 8) return false;
   if (buffer.length > 72) return false;
@@ -10675,7 +10675,7 @@ function encode(r, s) {
   return signature2;
 }
 
-// node_modules/bitcoinjs-lib/src/esm/ops.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/ops.js
 var OPS;
 (function(OPS10) {
   OPS10[OPS10["OP_FALSE"] = 0] = "OP_FALSE";
@@ -10799,7 +10799,7 @@ var OPS;
   OPS10[OPS10["OP_INVALIDOPCODE"] = 255] = "OP_INVALIDOPCODE";
 })(OPS || (OPS = {}));
 
-// ../../node_modules/uint8array-tools/src/mjs/browser.js
+// node_modules/uint8array-tools/src/mjs/browser.js
 var HEX_STRINGS = "0123456789abcdefABCDEF";
 var HEX_CODES = HEX_STRINGS.split("").map((c) => c.codePointAt(0));
 var HEX_CODEPOINTS = Array(256).fill(true).map((_, i) => {
@@ -11093,7 +11093,7 @@ function readInt64(buffer, offset, littleEndian) {
   }
 }
 
-// node_modules/bitcoinjs-lib/src/esm/push_data.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/push_data.js
 function encodingLength(i) {
   return i < OPS.OP_PUSHDATA1 ? 1 : i <= 255 ? 2 : i <= 65535 ? 3 : 5;
 }
@@ -11141,7 +11141,7 @@ function decode2(buffer, offset) {
   };
 }
 
-// node_modules/bitcoinjs-lib/src/esm/script_number.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/script_number.js
 function decode3(buffer, maxLength, minimal) {
   maxLength = maxLength || 4;
   minimal = minimal === void 0 ? true : minimal;
@@ -11188,14 +11188,14 @@ function encode3(_number) {
   return buffer;
 }
 
-// node_modules/bitcoinjs-lib/src/esm/script_signature.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/script_signature.js
 var script_signature_exports = {};
 __export(script_signature_exports, {
   decode: () => decode4,
   encode: () => encode4
 });
 
-// ../../node_modules/valibot/dist/index.mjs
+// node_modules/valibot/dist/index.mjs
 var store$4;
 // @__NO_SIDE_EFFECTS__
 function getGlobalConfig(config$1) {
@@ -11824,7 +11824,7 @@ function pipe(...pipe$1) {
   };
 }
 
-// node_modules/bitcoinjs-lib/src/esm/types.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/types.js
 var ZERO32 = new Uint8Array(32);
 var EC_P = fromHex(
   "fffffffffffffffffffffffffffffffffffffffffffffffffffffffefffffc2f"
@@ -11894,7 +11894,7 @@ var NullablePartial = (a) => object(
   )
 );
 
-// node_modules/bitcoinjs-lib/src/esm/script_signature.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/script_signature.js
 var ZERO = new Uint8Array(1);
 function toDER(x) {
   let i = 0;
@@ -11940,7 +11940,7 @@ function encode4(signature2, hashType) {
   return concat([encode(r, s), hashTypeBuffer]);
 }
 
-// node_modules/bitcoinjs-lib/src/esm/script.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/script.js
 var OP_INT_BASE = OPS.OP_RESERVED;
 var StackSchema = array(union([instance(Uint8Array), number()]));
 function isOPInt(value2) {
@@ -12069,7 +12069,7 @@ function isCanonicalScriptSignature(buffer) {
 }
 var signature = script_signature_exports;
 
-// node_modules/bitcoinjs-lib/src/esm/payments/lazy.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/lazy.js
 function prop(object2, name, f) {
   Object.defineProperty(object2, name, {
     configurable: true,
@@ -12098,7 +12098,7 @@ function value(f) {
   };
 }
 
-// node_modules/bitcoinjs-lib/src/esm/payments/embed.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/embed.js
 var OPS2 = OPS;
 function p2data(a, opts) {
   if (!a.data && !a.output) throw new TypeError("Not enough data");
@@ -12136,7 +12136,7 @@ function p2data(a, opts) {
   return Object.assign(o, a);
 }
 
-// node_modules/bitcoinjs-lib/src/esm/payments/p2ms.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/p2ms.js
 var OPS3 = OPS;
 var OP_INT_BASE2 = OPS3.OP_RESERVED;
 function encodeSmallOrScriptNum(n) {
@@ -12278,7 +12278,7 @@ function p2ms(a, opts) {
   return Object.assign(o, a);
 }
 
-// node_modules/bitcoinjs-lib/src/esm/payments/p2pk.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/p2pk.js
 var OPS4 = OPS;
 function p2pk(a, opts) {
   if (!a.input && !a.output && !a.pubkey && !a.input && !a.signature)
@@ -12345,7 +12345,7 @@ function p2pk(a, opts) {
   return Object.assign(o, a);
 }
 
-// ../../node_modules/@noble/hashes/esm/utils.js
+// node_modules/@noble/hashes/esm/utils.js
 function isBytes6(a) {
   return a instanceof Uint8Array || ArrayBuffer.isView(a) && a.constructor.name === "Uint8Array";
 }
@@ -12404,7 +12404,7 @@ function createHasher4(hashCons) {
   return hashC;
 }
 
-// ../../node_modules/@noble/hashes/esm/_md.js
+// node_modules/@noble/hashes/esm/_md.js
 function setBigUint64(view, byteOffset, value2, isLE) {
   if (typeof view.setBigUint64 === "function")
     return view.setBigUint64(byteOffset, value2, isLE);
@@ -12524,7 +12524,7 @@ var SHA256_IV4 = /* @__PURE__ */ Uint32Array.from([
   1541459225
 ]);
 
-// ../../node_modules/@noble/hashes/esm/legacy.js
+// node_modules/@noble/hashes/esm/legacy.js
 var Rho1602 = /* @__PURE__ */ Uint8Array.from([
   7,
   4,
@@ -12642,10 +12642,10 @@ var RIPEMD160 = class extends HashMD4 {
 };
 var ripemd1602 = /* @__PURE__ */ createHasher4(() => new RIPEMD160());
 
-// ../../node_modules/@noble/hashes/esm/ripemd160.js
+// node_modules/@noble/hashes/esm/ripemd160.js
 var ripemd1603 = ripemd1602;
 
-// ../../node_modules/@noble/hashes/esm/sha2.js
+// node_modules/@noble/hashes/esm/sha2.js
 var SHA256_K4 = /* @__PURE__ */ Uint32Array.from([
   1116352408,
   1899447441,
@@ -12785,10 +12785,10 @@ var SHA256 = class extends HashMD4 {
 };
 var sha2564 = /* @__PURE__ */ createHasher4(() => new SHA256());
 
-// ../../node_modules/@noble/hashes/esm/sha256.js
+// node_modules/@noble/hashes/esm/sha256.js
 var sha2565 = sha2564;
 
-// node_modules/bitcoinjs-lib/src/esm/crypto.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/crypto.js
 function hash1602(buffer) {
   return ripemd1603(sha2565(buffer));
 }
@@ -13395,7 +13395,7 @@ function taggedHash(prefix, data) {
   return sha2565(concat([TAGGED_HASH_PREFIXES[prefix], data]));
 }
 
-// node_modules/base-x/src/esm/index.js
+// apps/frontend/node_modules/base-x/src/esm/index.js
 function base(ALPHABET2) {
   if (ALPHABET2.length >= 255) {
     throw new TypeError("Alphabet too long");
@@ -13526,11 +13526,11 @@ function base(ALPHABET2) {
 }
 var esm_default = base;
 
-// node_modules/bs58/src/esm/index.js
+// apps/frontend/node_modules/bs58/src/esm/index.js
 var ALPHABET = "123456789ABCDEFGHJKLMNPQRSTUVWXYZabcdefghijkmnopqrstuvwxyz";
 var esm_default2 = esm_default(ALPHABET);
 
-// node_modules/bs58check/src/esm/base.js
+// apps/frontend/node_modules/bs58check/src/esm/base.js
 function base_default(checksumFn) {
   function encode20(payload) {
     var payloadU8 = Uint8Array.from(payload);
@@ -13569,13 +13569,13 @@ function base_default(checksumFn) {
   };
 }
 
-// node_modules/bs58check/src/esm/index.js
+// apps/frontend/node_modules/bs58check/src/esm/index.js
 function sha256x2(buffer) {
   return sha2565(sha2565(buffer));
 }
 var esm_default3 = base_default(sha256x2);
 
-// node_modules/bitcoinjs-lib/src/esm/payments/p2pkh.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/p2pkh.js
 var OPS5 = OPS;
 function p2pkh(a, opts) {
   if (!a.address && !a.hash && !a.output && !a.pubkey && !a.input)
@@ -13690,7 +13690,7 @@ function p2pkh(a, opts) {
   return Object.assign(o, a);
 }
 
-// node_modules/bitcoinjs-lib/src/esm/payments/p2sh.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/p2sh.js
 var OPS6 = OPS;
 function p2sh(a, opts) {
   if (!a.address && !a.hash && !a.output && !a.redeem && !a.input)
@@ -13856,7 +13856,7 @@ function p2sh(a, opts) {
   return Object.assign(o, a);
 }
 
-// node_modules/bitcoinjs-lib/src/esm/payments/p2wpkh.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/p2wpkh.js
 var import_bech32 = __toESM(require_dist(), 1);
 var OPS7 = OPS;
 var EMPTY_BUFFER = new Uint8Array(0);
@@ -13973,7 +13973,7 @@ function p2wpkh(a, opts) {
   return Object.assign(o, a);
 }
 
-// node_modules/bitcoinjs-lib/src/esm/payments/p2wsh.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/p2wsh.js
 var import_bech322 = __toESM(require_dist(), 1);
 var OPS8 = OPS;
 var EMPTY_BUFFER2 = new Uint8Array(0);
@@ -14137,7 +14137,7 @@ function p2wsh(a, opts) {
   return Object.assign(o, a);
 }
 
-// node_modules/bitcoinjs-lib/src/esm/ecc_lib.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/ecc_lib.js
 var _ECCLIB_CACHE = {};
 function getEccLib() {
   if (!_ECCLIB_CACHE.eccLib)
@@ -14147,7 +14147,7 @@ function getEccLib() {
   return _ECCLIB_CACHE.eccLib;
 }
 
-// node_modules/varuint-bitcoin/src/esm/index.js
+// apps/frontend/node_modules/varuint-bitcoin/src/esm/index.js
 var esm_exports = {};
 __export(esm_exports, {
   decode: () => decode5,
@@ -14155,7 +14155,7 @@ __export(esm_exports, {
   encodingLength: () => encodingLength2
 });
 
-// node_modules/varuint-bitcoin/node_modules/uint8array-tools/src/mjs/browser.js
+// apps/frontend/node_modules/varuint-bitcoin/node_modules/uint8array-tools/src/mjs/browser.js
 var HEX_STRINGS2 = "0123456789abcdefABCDEF";
 var HEX_CODES2 = HEX_STRINGS2.split("").map((c) => c.codePointAt(0));
 var HEX_CODEPOINTS2 = Array(256).fill(true).map((_, i) => {
@@ -14297,7 +14297,7 @@ function readUInt64(buffer, offset, littleEndian) {
   }
 }
 
-// node_modules/varuint-bitcoin/src/esm/index.js
+// apps/frontend/node_modules/varuint-bitcoin/src/esm/index.js
 var checkUInt64 = (n) => {
   if (n < 0 || n > 0xffffffffffffffffn) {
     throw new RangeError("value out of range");
@@ -14371,7 +14371,7 @@ function encodingLength2(n) {
   return n < 253 ? 1 : n <= 65535 ? 3 : n <= 4294967295 ? 5 : 9;
 }
 
-// node_modules/bitcoinjs-lib/src/esm/bufferutils.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/bufferutils.js
 var MAX_JS_NUMBER = 9007199254740991;
 function verifuint(value2, max) {
   if (typeof value2 !== "number" && typeof value2 !== "bigint")
@@ -14512,7 +14512,7 @@ var BufferReader = class {
   }
 };
 
-// node_modules/bitcoinjs-lib/src/esm/payments/bip341.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/bip341.js
 var LEAF_VERSION_TAPSCRIPT = 192;
 var MAX_TAPTREE_DEPTH = 128;
 var isHashBranch = (ht) => "left" in ht && "right" in ht;
@@ -14590,7 +14590,7 @@ function serializeScript(s) {
   return concat([buffer, s]);
 }
 
-// node_modules/bitcoinjs-lib/src/esm/payments/p2tr.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/payments/p2tr.js
 var import_bech323 = __toESM(require_dist(), 1);
 var OPS9 = OPS;
 var TAPROOT_WITNESS_VERSION = 1;
@@ -14834,7 +14834,7 @@ function p2tr(a, opts) {
   return Object.assign(o, a);
 }
 
-// node_modules/bitcoinjs-lib/src/esm/address.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/address.js
 var import_bech324 = __toESM(require_dist(), 1);
 var FUTURE_SEGWIT_MAX_SIZE = 40;
 var FUTURE_SEGWIT_MIN_SIZE = 2;
@@ -14965,7 +14965,7 @@ function toOutputScript(address, network) {
   throw new Error(address + " has no matching Script");
 }
 
-// node_modules/bitcoinjs-lib/src/esm/transaction.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/transaction.js
 function varSliceSize(someScript) {
   const length2 = someScript.length;
   return esm_exports.encodingLength(length2) + length2;
@@ -15427,7 +15427,7 @@ var Transaction = class _Transaction {
   }
 };
 
-// node_modules/bitcoinjs-lib/src/esm/block.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/block.js
 var errorMerkleNoTxes = new TypeError(
   "Cannot compute merkle root for zero transactions"
 );
@@ -15435,7 +15435,7 @@ var errorWitnessNotSegwit = new TypeError(
   "Cannot compute witness commit for non-segwit block"
 );
 
-// node_modules/bip174/src/esm/lib/converter/index.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/index.js
 var converter_exports = {};
 __export(converter_exports, {
   globals: () => globals,
@@ -15443,7 +15443,7 @@ __export(converter_exports, {
   outputs: () => outputs
 });
 
-// node_modules/bip174/src/esm/lib/typeFields.js
+// apps/frontend/node_modules/bip174/src/esm/lib/typeFields.js
 var GlobalTypes;
 (function(GlobalTypes2) {
   GlobalTypes2[GlobalTypes2["UNSIGNED_TX"] = 0] = "UNSIGNED_TX";
@@ -15478,7 +15478,7 @@ var OutputTypes;
   OutputTypes2[OutputTypes2["TAP_BIP32_DERIVATION"] = 7] = "TAP_BIP32_DERIVATION";
 })(OutputTypes || (OutputTypes = {}));
 
-// node_modules/bip174/src/esm/lib/converter/global/globalXpub.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/global/globalXpub.js
 var globalXpub_exports = {};
 __export(globalXpub_exports, {
   canAddToArray: () => canAddToArray,
@@ -15551,7 +15551,7 @@ function canAddToArray(array2, item, dupeSet) {
   return array2.filter((v) => compare(v.extendedPubkey, item.extendedPubkey)).length === 0;
 }
 
-// node_modules/bip174/src/esm/lib/converter/global/unsignedTx.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/global/unsignedTx.js
 var unsignedTx_exports = {};
 __export(unsignedTx_exports, {
   encode: () => encode7
@@ -15563,7 +15563,7 @@ function encode7(data) {
   };
 }
 
-// node_modules/bip174/src/esm/lib/converter/input/finalScriptSig.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/finalScriptSig.js
 var finalScriptSig_exports = {};
 __export(finalScriptSig_exports, {
   canAdd: () => canAdd,
@@ -15595,7 +15595,7 @@ function canAdd(currentData, newData) {
   return !!currentData && !!newData && currentData.finalScriptSig === void 0;
 }
 
-// node_modules/bip174/src/esm/lib/converter/input/finalScriptWitness.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/finalScriptWitness.js
 var finalScriptWitness_exports = {};
 __export(finalScriptWitness_exports, {
   canAdd: () => canAdd2,
@@ -15627,7 +15627,7 @@ function canAdd2(currentData, newData) {
   return !!currentData && !!newData && currentData.finalScriptWitness === void 0;
 }
 
-// node_modules/bip174/src/esm/lib/converter/input/nonWitnessUtxo.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/nonWitnessUtxo.js
 var nonWitnessUtxo_exports = {};
 __export(nonWitnessUtxo_exports, {
   canAdd: () => canAdd3,
@@ -15658,7 +15658,7 @@ function canAdd3(currentData, newData) {
   return !!currentData && !!newData && currentData.nonWitnessUtxo === void 0;
 }
 
-// node_modules/bip174/src/esm/lib/converter/input/partialSig.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/partialSig.js
 var partialSig_exports = {};
 __export(partialSig_exports, {
   canAddToArray: () => canAddToArray2,
@@ -15715,7 +15715,7 @@ function canAddToArray2(array2, item, dupeSet) {
   return array2.filter((v) => compare(v.pubkey, item.pubkey) === 0).length === 0;
 }
 
-// node_modules/bip174/src/esm/lib/converter/input/porCommitment.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/porCommitment.js
 var porCommitment_exports = {};
 __export(porCommitment_exports, {
   canAdd: () => canAdd4,
@@ -15747,7 +15747,7 @@ function canAdd4(currentData, newData) {
   return !!currentData && !!newData && currentData.porCommitment === void 0;
 }
 
-// node_modules/bip174/src/esm/lib/converter/input/sighashType.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/sighashType.js
 var sighashType_exports = {};
 __export(sighashType_exports, {
   canAdd: () => canAdd5,
@@ -15781,7 +15781,7 @@ function canAdd5(currentData, newData) {
   return !!currentData && !!newData && currentData.sighashType === void 0;
 }
 
-// node_modules/bip174/src/esm/lib/converter/input/tapKeySig.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/tapKeySig.js
 var tapKeySig_exports = {};
 __export(tapKeySig_exports, {
   canAdd: () => canAdd6,
@@ -15815,7 +15815,7 @@ function canAdd6(currentData, newData) {
   return !!currentData && !!newData && currentData.tapKeySig === void 0;
 }
 
-// node_modules/bip174/src/esm/lib/converter/input/tapLeafScript.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/tapLeafScript.js
 var tapLeafScript_exports = {};
 __export(tapLeafScript_exports, {
   canAddToArray: () => canAddToArray3,
@@ -15864,7 +15864,7 @@ function canAddToArray3(array2, item, dupeSet) {
   return array2.filter((v) => compare(v.controlBlock, item.controlBlock) === 0).length === 0;
 }
 
-// node_modules/bip174/src/esm/lib/converter/input/tapMerkleRoot.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/tapMerkleRoot.js
 var tapMerkleRoot_exports = {};
 __export(tapMerkleRoot_exports, {
   canAdd: () => canAdd7,
@@ -15896,7 +15896,7 @@ function canAdd7(currentData, newData) {
   return !!currentData && !!newData && currentData.tapMerkleRoot === void 0;
 }
 
-// node_modules/bip174/src/esm/lib/converter/input/tapScriptSig.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/tapScriptSig.js
 var tapScriptSig_exports = {};
 __export(tapScriptSig_exports, {
   canAddToArray: () => canAddToArray4,
@@ -15949,7 +15949,7 @@ function canAddToArray4(array2, item, dupeSet) {
   ).length === 0;
 }
 
-// node_modules/bip174/src/esm/lib/converter/input/witnessUtxo.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/input/witnessUtxo.js
 var witnessUtxo_exports = {};
 __export(witnessUtxo_exports, {
   canAdd: () => canAdd8,
@@ -16000,7 +16000,7 @@ function canAdd8(currentData, newData) {
   return !!currentData && !!newData && currentData.witnessUtxo === void 0;
 }
 
-// node_modules/bip174/src/esm/lib/converter/output/tapTree.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/output/tapTree.js
 var tapTree_exports = {};
 __export(tapTree_exports, {
   canAdd: () => canAdd9,
@@ -16058,7 +16058,7 @@ function canAdd9(currentData, newData) {
   return !!currentData && !!newData && currentData.tapTree === void 0;
 }
 
-// node_modules/bip174/src/esm/lib/converter/shared/bip32Derivation.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/shared/bip32Derivation.js
 var range2 = (n) => [...Array(n).keys()];
 var isValidDERKey = (pubkey) => pubkey.length === 33 && [2, 3].includes(pubkey[0]) || pubkey.length === 65 && 4 === pubkey[0];
 function makeConverter(TYPE_BYTE, isValidPubkey = isValidDERKey) {
@@ -16130,7 +16130,7 @@ function makeConverter(TYPE_BYTE, isValidPubkey = isValidDERKey) {
   };
 }
 
-// node_modules/bip174/src/esm/lib/converter/shared/checkPubkey.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/shared/checkPubkey.js
 function makeChecker(pubkeyTypes) {
   return checkPubkey;
   function checkPubkey(keyVal) {
@@ -16147,7 +16147,7 @@ function makeChecker(pubkeyTypes) {
   }
 }
 
-// node_modules/bip174/src/esm/lib/converter/shared/redeemScript.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/shared/redeemScript.js
 function makeConverter2(TYPE_BYTE) {
   function decode19(keyVal) {
     if (keyVal.key[0] !== TYPE_BYTE) {
@@ -16180,7 +16180,7 @@ function makeConverter2(TYPE_BYTE) {
   };
 }
 
-// node_modules/bip174/src/esm/lib/converter/shared/tapBip32Derivation.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/shared/tapBip32Derivation.js
 var isValidBIP340Key = (pubkey) => pubkey.length === 32;
 function makeConverter3(TYPE_BYTE) {
   const parent = makeConverter(TYPE_BYTE, isValidBIP340Key);
@@ -16221,7 +16221,7 @@ function makeConverter3(TYPE_BYTE) {
   };
 }
 
-// node_modules/bip174/src/esm/lib/converter/shared/tapInternalKey.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/shared/tapInternalKey.js
 function makeConverter4(TYPE_BYTE) {
   function decode19(keyVal) {
     if (keyVal.key[0] !== TYPE_BYTE || keyVal.key.length !== 1) {
@@ -16256,7 +16256,7 @@ function makeConverter4(TYPE_BYTE) {
   };
 }
 
-// node_modules/bip174/src/esm/lib/converter/shared/witnessScript.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/shared/witnessScript.js
 function makeConverter5(TYPE_BYTE) {
   function decode19(keyVal) {
     if (keyVal.key[0] !== TYPE_BYTE) {
@@ -16289,7 +16289,7 @@ function makeConverter5(TYPE_BYTE) {
   };
 }
 
-// node_modules/bip174/src/esm/lib/converter/index.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/index.js
 var globals = {
   unsignedTx: unsignedTx_exports,
   globalXpub: globalXpub_exports,
@@ -16332,7 +16332,7 @@ var outputs = {
   tapInternalKey: makeConverter4(OutputTypes.TAP_INTERNAL_KEY)
 };
 
-// node_modules/bip174/src/esm/lib/converter/tools.js
+// apps/frontend/node_modules/bip174/src/esm/lib/converter/tools.js
 var range3 = (n) => [...Array(n).keys()];
 function keyValsToBuffer(keyVals) {
   const buffers = keyVals.map(keyValToBuffer);
@@ -16352,7 +16352,7 @@ function keyValToBuffer(keyVal) {
   return buffer;
 }
 
-// node_modules/bip174/src/esm/lib/parser/fromBuffer.js
+// apps/frontend/node_modules/bip174/src/esm/lib/parser/fromBuffer.js
 function psbtFromBuffer(buffer, txGetter) {
   let offset = 0;
   function varSlice() {
@@ -16658,7 +16658,7 @@ function psbtFromKeyVals(unsignedTx, { globalMapKeyVals, inputKeyVals, outputKey
   return { globalMap, inputs: inputs2, outputs: outputs2 };
 }
 
-// node_modules/bip174/src/esm/lib/parser/toBuffer.js
+// apps/frontend/node_modules/bip174/src/esm/lib/parser/toBuffer.js
 function psbtToBuffer({ globalMap, inputs: inputs2, outputs: outputs2 }) {
   const { globalKeyVals, inputKeyVals, outputKeyVals } = psbtToKeyVals({
     globalMap,
@@ -16708,7 +16708,7 @@ function psbtToKeyVals({ globalMap, inputs: inputs2, outputs: outputs2 }) {
   };
 }
 
-// node_modules/bip174/src/esm/lib/combiner/index.js
+// apps/frontend/node_modules/bip174/src/esm/lib/combiner/index.js
 function combine(psbts) {
   const self = psbts[0];
   const selfKeyVals = psbtToKeyVals(self);
@@ -16786,7 +16786,7 @@ function getKeySet(keyVals) {
   return set;
 }
 
-// node_modules/bip174/src/esm/lib/utils.js
+// apps/frontend/node_modules/bip174/src/esm/lib/utils.js
 function checkForInput(inputs2, inputIndex) {
   const input = inputs2[inputIndex];
   if (input === void 0) throw new Error(`No input #${inputIndex}`);
@@ -16888,7 +16888,7 @@ function addOutputAttributes(outputs2, data) {
   updateOutput(data, output);
 }
 
-// node_modules/bip174/src/esm/lib/psbt.js
+// apps/frontend/node_modules/bip174/src/esm/lib/psbt.js
 var Psbt = class {
   constructor(tx) {
     this.inputs = [];
@@ -17018,7 +17018,7 @@ var Psbt = class {
   }
 };
 
-// node_modules/bitcoinjs-lib/src/esm/psbt/psbtutils.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/psbt/psbtutils.js
 function isPaymentFactory(payment) {
   return (script) => {
     try {
@@ -17115,7 +17115,7 @@ function getPsigsFromInputFinalScripts(input) {
   }).map((sig) => ({ signature: sig }));
 }
 
-// node_modules/bitcoinjs-lib/src/esm/psbt/bip371.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/psbt/bip371.js
 var toXOnly = (pubKey) => pubKey.length === 32 ? pubKey : pubKey.slice(1, 33);
 function tapScriptFinalizer(inputIndex, input, tapLeafHashToFinalize) {
   const tapLeaf = findTapLeafToFinalize(
@@ -17318,7 +17318,7 @@ function hasNonTaprootFields(io) {
   return io && !!(io.redeemScript || io.witnessScript || io.bip32Derivation && io.bip32Derivation.length);
 }
 
-// node_modules/bitcoinjs-lib/src/esm/psbt.js
+// apps/frontend/node_modules/bitcoinjs-lib/src/esm/psbt.js
 var DEFAULT_OPTS = {
   /**
    * A bitcoinjs Network object. This is only used if you pass an `address`
@@ -18815,38 +18815,24 @@ function range4(n) {
   return [...Array(n).keys()];
 }
 
-// client/scripts/pages/donate.js
+// apps/frontend/client/scripts/pages/donate.js
 var import_qrcode = __toESM(require_browser(), 1);
 
-// client/scripts/config.js
+// apps/frontend/client/scripts/config.js
 var CLIENT_CONFIG = {
-  backendEndpoint: "https://newfreebitcoins.com",
-  electrum: {
-    mainnet: {
-      host: "electrum.blockstream.info",
-      port: 50002,
-      protocol: "tls"
-    },
-    regtest: {
-      host: "127.0.0.1",
-      port: 50001,
-      protocol: "tcp"
-    }
-  }
+  backendEndpoint: "https://newfreebitcoins.com"
 };
 
-// client/scripts/consts.js
+// apps/frontend/client/scripts/consts.js
 var BACKEND_ENDPOINT = CLIENT_CONFIG.backendEndpoint;
 var NETWORK_CONFIG = {
   mainnet: {
     label: "Mainnet",
-    bip84CoinType: 0,
-    electrum: CLIENT_CONFIG.electrum.mainnet
+    bip84CoinType: 0
   },
   regtest: {
     label: "Regtest",
-    bip84CoinType: 1,
-    electrum: CLIENT_CONFIG.electrum.regtest
+    bip84CoinType: 1
   }
 };
 function getRuntimeAppConfig() {
@@ -18869,7 +18855,77 @@ function isLikelyAddressForNetwork(value2, network) {
   return /^(bc1|[13])[a-zA-HJ-NP-Z0-9]{20,90}$/.test(trimmed);
 }
 
-// client/scripts/api.js
+// apps/frontend/client/scripts/api.js
+var runtimeConfigPromise = null;
+function getElectrsApiBaseUrl() {
+  const configured = window.__APP_CONFIG__?.electrs?.apiBaseUrl;
+  if (!configured) {
+    return "";
+  }
+  return String(configured).replace(/\/+$/, "");
+}
+function getExplorerTxBaseUrl() {
+  const configured = window.__APP_CONFIG__?.explorer?.txBaseUrl;
+  if (!configured) {
+    return "";
+  }
+  return String(configured).replace(/\/+$/, "/");
+}
+async function getElectrsJson(path) {
+  const baseUrl = getElectrsApiBaseUrl();
+  if (!baseUrl) {
+    return null;
+  }
+  try {
+    const response = await fetch(`${baseUrl}${path}`, {
+      cache: "no-store"
+    });
+    if (!response.ok) {
+      return {
+        ok: false,
+        error: `request_failed_${response.status}`
+      };
+    }
+    const payload = await parseJson(response);
+    return {
+      ok: true,
+      data: payload
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      ok: false,
+      error: "network_error"
+    };
+  }
+}
+async function getElectrsText(path) {
+  const baseUrl = getElectrsApiBaseUrl();
+  if (!baseUrl) {
+    return null;
+  }
+  try {
+    const response = await fetch(`${baseUrl}${path}`, {
+      cache: "no-store"
+    });
+    if (!response.ok) {
+      return {
+        ok: false,
+        error: `request_failed_${response.status}`
+      };
+    }
+    return {
+      ok: true,
+      data: await response.text()
+    };
+  } catch (error) {
+    console.error(error);
+    return {
+      ok: false,
+      error: "network_error"
+    };
+  }
+}
 async function parseJson(response) {
   const contentType = response.headers.get("content-type") ?? "";
   if (!contentType.includes("application/json")) {
@@ -18933,19 +18989,48 @@ async function postJson(url, payload) {
   }
 }
 async function getAppConfig() {
-  const result = await getJson(`${BACKEND_ENDPOINT}/api/app-config`);
-  if (!result.ok) {
+  if (window.__APP_CONFIG__) {
     return {
-      ok: false,
-      error: result.error
+      ok: true,
+      data: window.__APP_CONFIG__
     };
   }
-  return {
-    ok: true,
-    data: result.data
-  };
+  if (!runtimeConfigPromise) {
+    runtimeConfigPromise = getJson(`${BACKEND_ENDPOINT}/api/config`).then((result) => {
+      if (!result.ok) {
+        runtimeConfigPromise = null;
+        return {
+          ok: false,
+          error: result.error
+        };
+      }
+      window.__APP_CONFIG__ = result.data;
+      return {
+        ok: true,
+        data: result.data
+      };
+    });
+  }
+  return runtimeConfigPromise;
+}
+async function getRuntimeConfig() {
+  return getAppConfig();
 }
 async function getWalletBalance(address) {
+  const electrsResult = await getElectrsJson(
+    `/address/${encodeURIComponent(address)}`
+  );
+  if (electrsResult?.ok) {
+    const chainStats = electrsResult.data?.chain_stats ?? {};
+    const mempoolStats = electrsResult.data?.mempool_stats ?? {};
+    return {
+      ok: true,
+      data: {
+        confirmed: Number(chainStats.funded_txo_sum ?? 0) - Number(chainStats.spent_txo_sum ?? 0),
+        unconfirmed: Number(mempoolStats.funded_txo_sum ?? 0) - Number(mempoolStats.spent_txo_sum ?? 0)
+      }
+    };
+  }
   const url = new URL(`${BACKEND_ENDPOINT}/api/wallet/balance`);
   url.searchParams.set("address", address);
   const result = await getJson(url.toString());
@@ -18958,6 +19043,23 @@ async function getWalletBalance(address) {
   };
 }
 async function getWalletUtxos(address) {
+  const electrsResult = await getElectrsJson(
+    `/address/${encodeURIComponent(address)}/utxo`
+  );
+  if (electrsResult?.ok) {
+    return {
+      ok: true,
+      data: {
+        address,
+        utxos: Array.isArray(electrsResult.data) ? electrsResult.data.map((utxo) => ({
+          txid: String(utxo.txid ?? ""),
+          vout: Number(utxo.vout ?? 0),
+          value: Number(utxo.value ?? 0),
+          height: utxo.status?.confirmed ? Number(utxo.status?.block_height ?? 0) : 0
+        })) : []
+      }
+    };
+  }
   const url = new URL(`${BACKEND_ENDPOINT}/api/donations/wallet-utxos`);
   url.searchParams.set("address", address);
   return getJson(url.toString());
@@ -18988,6 +19090,28 @@ async function sendDonationTransaction(donorAddress, rawTransactionHex) {
   });
 }
 async function getTransactionStatus(txid) {
+  const statusResult = await getElectrsJson(`/tx/${encodeURIComponent(txid)}/status`);
+  if (statusResult?.ok) {
+    const status = statusResult.data ?? {};
+    let confirmations = 0;
+    if (status.confirmed && status.block_height) {
+      const tipHeightResult = await getElectrsText("/blocks/tip/height");
+      const tipHeight = Number(tipHeightResult?.data ?? 0);
+      if (Number.isInteger(tipHeight) && tipHeight >= Number(status.block_height)) {
+        confirmations = tipHeight - Number(status.block_height) + 1;
+      }
+    }
+    return {
+      ok: true,
+      data: {
+        txid,
+        confirmations,
+        confirmed: Boolean(status.confirmed),
+        blocktime: Number(status.block_time ?? 0) > 0 ? Number(status.block_time) : null,
+        explorerUrl: getExplorerTxBaseUrl() ? `${getExplorerTxBaseUrl()}${encodeURIComponent(txid)}` : null
+      }
+    };
+  }
   const url = new URL(`${BACKEND_ENDPOINT}/api/donations/tx-status`);
   url.searchParams.set("txid", txid);
   return getJson(url.toString());
@@ -19013,13 +19137,19 @@ async function sendDonationHeartbeat(payload) {
   };
 }
 
-// client/scripts/pages/donate.js
-var STORAGE_KEY = "donationWallet";
+// apps/frontend/client/scripts/pages/donate.js
+var STORAGE_KEY_PREFIX = "donationWallet";
+var LEGACY_STORAGE_KEY = STORAGE_KEY_PREFIX;
 var DUST_THRESHOLD = 546;
 var WALLET_AUTO_REFRESH_MS = 1e4;
+var SEND_REFETCH_DELAY_MS = 1500;
+var GRAFFITI_MAX_LENGTH = 80;
+var DONATION_HEARTBEAT_CONTEXT = "new-free-bitcoins-donation-heartbeat";
+var MAX_FEE_RATE_SAT_PER_VBYTE = 500;
 window.Buffer ??= import_buffer.Buffer;
 var appConfig = null;
 var pendingMnemonic = "";
+var pendingWalletMode = "create";
 var confirmationIndexes = [];
 var confirmationStep = "password";
 var unlockedWalletState = null;
@@ -19033,10 +19163,12 @@ var donationRuntimeState = {
 var walletActivityItems = [];
 var walletActivityPage = 1;
 var walletAutoRefreshIntervalId = null;
+var walletDataRefetchTimeoutId = null;
 var WALLET_ACTIVITY_PAGE_SIZE = 8;
 var DONATE_HASHES = {
   onboarding: "#donate",
   importWallet: "#import-wallet",
+  importPassword: "#import-wallet-password",
   createPassword: "#create-wallet-password",
   createMnemonic: "#create-wallet-mnemonic",
   createWords: "#create-wallet-confirm",
@@ -19077,8 +19209,8 @@ function getBitcoinNetwork() {
 function getCoinLabel() {
   return appConfig?.unitLabel ?? "BTC";
 }
-function getStoredWallet() {
-  const raw = window.localStorage.getItem(STORAGE_KEY);
+function readStoredWallet(key) {
+  const raw = window.localStorage.getItem(key);
   if (!raw) {
     return null;
   }
@@ -19088,8 +19220,60 @@ function getStoredWallet() {
     return null;
   }
 }
-function storeWallet(payload) {
-  window.localStorage.setItem(STORAGE_KEY, JSON.stringify(payload));
+function getCurrentNetwork() {
+  return appConfig?.network ?? "mainnet";
+}
+function getStorageKey(network = getCurrentNetwork()) {
+  return `${STORAGE_KEY_PREFIX}:${network}`;
+}
+function getStoredWalletForNetwork(network) {
+  return readStoredWallet(getStorageKey(network));
+}
+function getLegacyStoredWallet() {
+  return readStoredWallet(LEGACY_STORAGE_KEY);
+}
+function getStoredWallet() {
+  return getStoredWalletForNetwork(getCurrentNetwork());
+}
+function getUnlockSourceWalletInfo() {
+  const currentNetwork = getCurrentNetwork();
+  const currentWallet = getStoredWalletForNetwork(currentNetwork);
+  if (currentWallet) {
+    return {
+      wallet: currentWallet,
+      key: getStorageKey(currentNetwork),
+      isCurrentNetwork: true
+    };
+  }
+  const legacyWallet = getLegacyStoredWallet();
+  if (legacyWallet) {
+    return {
+      wallet: legacyWallet,
+      key: LEGACY_STORAGE_KEY,
+      isCurrentNetwork: legacyWallet.network === currentNetwork
+    };
+  }
+  for (const network of Object.keys(NETWORK_CONFIG)) {
+    if (network === currentNetwork) {
+      continue;
+    }
+    const wallet = getStoredWalletForNetwork(network);
+    if (wallet) {
+      return {
+        wallet,
+        key: getStorageKey(network),
+        isCurrentNetwork: false
+      };
+    }
+  }
+  return {
+    wallet: null,
+    key: "",
+    isCurrentNetwork: false
+  };
+}
+function storeWallet(payload, network = getCurrentNetwork()) {
+  window.localStorage.setItem(getStorageKey(network), JSON.stringify(payload));
 }
 function updateStoredWallet(patch) {
   const storedWallet = getStoredWallet();
@@ -19102,7 +19286,10 @@ function updateStoredWallet(patch) {
   });
 }
 function clearWallet() {
-  window.localStorage.removeItem(STORAGE_KEY);
+  window.localStorage.removeItem(LEGACY_STORAGE_KEY);
+  for (const network of Object.keys(NETWORK_CONFIG)) {
+    window.localStorage.removeItem(getStorageKey(network));
+  }
 }
 function setMessage(text, type = "") {
   const node = $("[data-donate-message]");
@@ -19204,8 +19391,11 @@ function deriveWallet(mnemonic) {
   };
 }
 async function getChallengeHashBytes(challengeHex) {
-  const challengeBytes = Uint8Array.from(import_buffer.Buffer.from(challengeHex, "hex"));
-  const digest = await crypto.subtle.digest("SHA-256", challengeBytes);
+  const graffiti = String(getStoredWallet()?.graffiti ?? "").trim();
+  const payload = new TextEncoder().encode(
+    `${DONATION_HEARTBEAT_CONTEXT}\0${challengeHex}\0${graffiti}`
+  );
+  const digest = await crypto.subtle.digest("SHA-256", payload);
   return new Uint8Array(digest);
 }
 function clearScheduledCycle() {
@@ -19220,6 +19410,47 @@ function clearWalletAutoRefresh() {
     walletAutoRefreshIntervalId = null;
   }
 }
+function clearWalletDataRefetchTimeout() {
+  if (walletDataRefetchTimeoutId) {
+    window.clearTimeout(walletDataRefetchTimeoutId);
+    walletDataRefetchTimeoutId = null;
+  }
+}
+function formatSatsAsBtcValue(sats) {
+  return (Number(sats ?? 0) / 1e8).toFixed(8);
+}
+function parseBtcAmountToSats(value2) {
+  const trimmed = String(value2 ?? "").trim();
+  if (!/^\d+(?:\.\d{1,8})?$/.test(trimmed)) {
+    return null;
+  }
+  const [wholePart, fractionalPart = ""] = trimmed.split(".");
+  const normalizedFractional = `${fractionalPart}00000000`.slice(0, 8);
+  return Number(BigInt(wholePart) * 100000000n + BigInt(normalizedFractional));
+}
+function normalizeMnemonicInput(value2) {
+  return String(value2 ?? "").trim().toLowerCase().replace(/\s+/g, " ");
+}
+function parseFeeRateSatPerVbyte(value2) {
+  const trimmed = String(value2 ?? "").trim();
+  if (!/^\d+(?:\.\d+)?$/.test(trimmed)) {
+    return null;
+  }
+  const parsed = Number(trimmed);
+  if (!Number.isFinite(parsed) || parsed <= 0 || parsed > MAX_FEE_RATE_SAT_PER_VBYTE) {
+    return null;
+  }
+  return parsed;
+}
+function getDefaultFeeRateSatPerVbyte() {
+  const configured = Number(
+    getStoredWallet()?.feeRateSatPerVbyte ?? appConfig?.donations?.feeRateSatPerVbyte ?? 2
+  );
+  if (Number.isFinite(configured) && configured > 0 && configured <= MAX_FEE_RATE_SAT_PER_VBYTE) {
+    return configured;
+  }
+  return 2;
+}
 function getMaxRequestsPerTx() {
   const input = $("[data-max-requests-input]");
   const storedWallet = getStoredWallet();
@@ -19232,15 +19463,27 @@ function getMaxRequestsPerTx() {
 }
 function getFeeRateSatPerVbyte() {
   const input = $("[data-fee-rate-input]");
-  const storedWallet = getStoredWallet();
-  const fallback = Number(
-    storedWallet?.feeRateSatPerVbyte ?? appConfig?.donations?.feeRateSatPerVbyte ?? 2
-  ) || 2;
+  const fallback = getDefaultFeeRateSatPerVbyte();
   if (!input) {
     return fallback;
   }
-  const value2 = Number(input.value ?? fallback);
-  return Math.min(Math.max(value2 || fallback, 1), 500);
+  return parseFeeRateSatPerVbyte(input.value) ?? fallback;
+}
+function getValidatedFeeRateSatPerVbyte() {
+  const input = $("[data-fee-rate-input]");
+  return parseFeeRateSatPerVbyte(input?.value ?? "");
+}
+function getSendAmountSats() {
+  const input = $("[data-send-amount]");
+  return parseBtcAmountToSats(String(input?.value ?? ""));
+}
+function getGraffitiValue() {
+  const input = $("[data-graffiti-input]");
+  const fallback = String(getStoredWallet()?.graffiti ?? "").trim();
+  if (!input) {
+    return fallback;
+  }
+  return String(input.value ?? fallback).trim();
 }
 function setMaxRequestsInputValue(value2) {
   const input = $("[data-max-requests-input]");
@@ -19251,7 +19494,19 @@ function setMaxRequestsInputValue(value2) {
 function setFeeRateInputValue(value2) {
   const input = $("[data-fee-rate-input]");
   if (input) {
-    input.value = String(Math.min(Math.max(Number(value2) || 2, 1), 500));
+    input.value = String(parseFeeRateSatPerVbyte(value2) ?? getDefaultFeeRateSatPerVbyte());
+  }
+}
+function setGraffitiInputValue(value2) {
+  const input = $("[data-graffiti-input]");
+  if (input) {
+    input.value = String(value2 ?? "").trim();
+  }
+}
+function setSendAmountInputValueFromSats(sats) {
+  const input = $("[data-send-amount]");
+  if (input) {
+    input.value = formatSatsAsBtcValue(sats);
   }
 }
 function setMaxRequestsEditing(isEditing) {
@@ -19284,13 +19539,72 @@ function setFeeRateEditing(isEditing) {
     saveButton.disabled = donationRuntimeState.enabled;
   }
 }
+function setGraffitiEditing(isEditing) {
+  const input = $("[data-graffiti-input]");
+  const editButton = $("[data-edit-graffiti]");
+  const saveButton = $("[data-save-graffiti]");
+  if (input) {
+    input.disabled = !isEditing;
+  }
+  if (editButton) {
+    editButton.disabled = isEditing;
+  }
+  if (saveButton) {
+    saveButton.hidden = !isEditing;
+  }
+}
 function setSendStatus(text, type = "") {
   const node = $("[data-send-status]");
   if (!node) {
     return;
   }
+  node.className = "";
   node.textContent = text;
   node.dataset.messageType = type;
+}
+function setSendStatusWithTxLink(message, txid, explorerUrl) {
+  const node = $("[data-send-status]");
+  if (!node) {
+    return;
+  }
+  node.dataset.messageType = "success";
+  node.className = "request-success";
+  node.textContent = `${message} `;
+  if (!explorerUrl || !txid) {
+    node.textContent = message;
+    return;
+  }
+  const link = document.createElement("a");
+  link.href = explorerUrl;
+  link.target = "_blank";
+  link.rel = "noreferrer";
+  link.textContent = txid;
+  node.appendChild(link);
+}
+function isSendFormValid() {
+  const destinationAddress = String($("[data-send-address]")?.value ?? "").trim();
+  const amountSats = getSendAmountSats();
+  const feeRate = getValidatedFeeRateSatPerVbyte();
+  if (!unlockedWalletState) {
+    return false;
+  }
+  if (!isLikelyAddressForNetwork(destinationAddress, appConfig?.network ?? "mainnet")) {
+    return false;
+  }
+  if (!Number.isInteger(amountSats) || Number(amountSats) <= 0) {
+    return false;
+  }
+  return feeRate != null;
+}
+function updateSendControls() {
+  const sendButton = $("[data-send-wallet]");
+  const maxButton = $("[data-send-max]");
+  if (sendButton) {
+    sendButton.disabled = !isSendFormValid();
+  }
+  if (maxButton) {
+    maxButton.disabled = !unlockedWalletState || getValidatedFeeRateSatPerVbyte() == null;
+  }
 }
 function renderExecutionStatus(text, isRunning = false) {
   const dot = $("[data-donation-running-dot]");
@@ -19325,6 +19639,14 @@ function renderExecutionStatus(text, isRunning = false) {
   }
   if (feeRateSaveButton) {
     feeRateSaveButton.disabled = isRunning;
+  }
+  updateSendControls();
+}
+function updateGraffitiThresholdNote() {
+  const node = $("[data-graffiti-threshold]");
+  const minimumGraffitiBtc = String(appConfig?.donations?.minimumGraffitiBtc ?? "").trim();
+  if (node) {
+    node.textContent = minimumGraffitiBtc ? `${minimumGraffitiBtc} ${getCoinLabel()}` : "the configured minimum";
   }
 }
 async function updateWalletBalance(address) {
@@ -19415,8 +19737,38 @@ async function renderWalletActivity(address) {
     renderWalletActivityTable();
     return;
   }
-  walletActivityItems = result.data.items;
+  walletActivityItems = [...result.data.items].sort((left, right) => {
+    const leftPending = !left?.occurredAt;
+    const rightPending = !right?.occurredAt;
+    if (leftPending !== rightPending) {
+      return leftPending ? -1 : 1;
+    }
+    const leftTime = left?.occurredAt ? new Date(left.occurredAt).valueOf() : 0;
+    const rightTime = right?.occurredAt ? new Date(right.occurredAt).valueOf() : 0;
+    return rightTime - leftTime;
+  });
   renderWalletActivityTable();
+}
+async function refetchWalletData({ followUpMs = 0 } = {}) {
+  if (!unlockedWalletState) {
+    return;
+  }
+  await Promise.all([
+    updateWalletBalance(unlockedWalletState.address),
+    renderWalletActivity(unlockedWalletState.address)
+  ]);
+  clearWalletDataRefetchTimeout();
+  if (followUpMs > 0) {
+    walletDataRefetchTimeoutId = window.setTimeout(() => {
+      if (!unlockedWalletState) {
+        return;
+      }
+      void Promise.all([
+        updateWalletBalance(unlockedWalletState.address),
+        renderWalletActivity(unlockedWalletState.address)
+      ]);
+    }, followUpMs);
+  }
 }
 function createRandomConfirmationIndexes(wordCount) {
   const chosen = /* @__PURE__ */ new Set();
@@ -19435,6 +19787,10 @@ function showConfirmationStep(stepName) {
 function showCreateWalletStep(stepName) {
   showSection("confirm");
   showConfirmationStep(stepName);
+  const continueButton = $("[data-confirm-next]");
+  if (continueButton) {
+    continueButton.textContent = pendingWalletMode === "create" ? "Continue" : "Import Donation Wallet";
+  }
 }
 function renderMnemonicWords() {
   const container = $("[data-generated-mnemonic]");
@@ -19496,6 +19852,13 @@ function syncPasswordStepState() {
     continueButton.disabled = !password || !confirmPassword;
   }
 }
+function syncImportStepState() {
+  const mnemonic = normalizeMnemonicInput($("[data-import-mnemonic]")?.value ?? "");
+  const continueButton = $("[data-import-wallet]");
+  if (continueButton) {
+    continueButton.disabled = !validateMnemonic(mnemonic, wordlist);
+  }
+}
 function handlePasswordStepSubmit(event) {
   if (event.key !== "Enter") {
     return;
@@ -19535,11 +19898,10 @@ function syncSaveWalletState() {
     saveButton.disabled = !validateConfirmationInputs();
   }
 }
-function prepareMnemonicFlow(mnemonic) {
-  pendingMnemonic = mnemonic.trim().toLowerCase();
-  confirmationIndexes = createRandomConfirmationIndexes(
-    pendingMnemonic.split(/\s+/).length
-  );
+function prepareMnemonicFlow(mnemonic, mode = "create") {
+  pendingMnemonic = normalizeMnemonicInput(mnemonic);
+  pendingWalletMode = mode;
+  confirmationIndexes = mode === "create" ? createRandomConfirmationIndexes(pendingMnemonic.split(/\s+/).length) : [];
   const passwordInput = $("[data-wallet-password]");
   const confirmPasswordInput = $("[data-wallet-password-confirm]");
   const unlockPasswordInput = $("[data-unlock-password]");
@@ -19552,18 +19914,13 @@ function prepareMnemonicFlow(mnemonic) {
   if (unlockPasswordInput) {
     unlockPasswordInput.value = "";
   }
-  renderMnemonicWords();
-  renderConfirmationPrompts();
-  syncPasswordStepState();
-  syncSaveWalletState();
-  setMessage("", "");
-  setHash(DONATE_HASHES.createPassword);
-}
-function isStoredWalletCompatible(storedWallet) {
-  if (!storedWallet || !storedWallet.network) {
-    return true;
+  if (mode === "create") {
+    renderMnemonicWords();
+    renderConfirmationPrompts();
   }
-  return storedWallet.network === appConfig?.network;
+  syncPasswordStepState();
+  setMessage("", "");
+  setHash(mode === "create" ? DONATE_HASHES.createPassword : DONATE_HASHES.importPassword);
 }
 function clearUnlockedWalletRuntime() {
   clearScheduledCycle();
@@ -19601,7 +19958,8 @@ async function maybeHeartbeat() {
     address: unlockedWalletState.address,
     publicKeyHex: unlockedWalletState.publicKeyHex,
     challenge,
-    signatureHex
+    signatureHex,
+    graffiti: String(getStoredWallet()?.graffiti ?? "").trim()
   });
   if (!heartbeatResult.ok) {
     setMessage("Unable to prove donation wallet activity right now.", "error");
@@ -19689,7 +20047,10 @@ async function buildSendTransaction(destinationAddress, amountSats) {
     throw new Error("Unable to load donation wallet UTXOs.");
   }
   const confirmedUtxos = [...utxoResult.data?.utxos ?? []].filter((utxo) => Number(utxo.height ?? 0) > 0).sort((left, right) => left.value - right.value);
-  const feeRate = getFeeRateSatPerVbyte();
+  const feeRate = getValidatedFeeRateSatPerVbyte();
+  if (feeRate == null) {
+    throw new Error("Enter a valid sats/vbyte fee rate.");
+  }
   const outputs2 = [{ address: destinationAddress, value: Number(amountSats) }];
   const selectedInputs = [];
   let totalInputs = 0;
@@ -19746,6 +20107,35 @@ async function buildSendTransaction(destinationAddress, amountSats) {
     feeSats: fee
   };
 }
+async function calculateMaxSendAmountSats() {
+  if (!unlockedWalletState) {
+    throw new Error("Unlock the donation wallet first.");
+  }
+  const utxoResult = await getWalletUtxos(unlockedWalletState.address);
+  if (!utxoResult.ok) {
+    throw new Error("Unable to load donation wallet UTXOs.");
+  }
+  const confirmedUtxos = [...utxoResult.data?.utxos ?? []].filter(
+    (utxo) => Number(utxo.height ?? 0) > 0
+  );
+  if (!confirmedUtxos.length) {
+    throw new Error("This donation wallet has no confirmed spendable UTXOs.");
+  }
+  const feeRate = getValidatedFeeRateSatPerVbyte();
+  if (feeRate == null) {
+    throw new Error("Enter a valid sats/vbyte fee rate.");
+  }
+  const totalInputs = confirmedUtxos.reduce(
+    (sum, utxo) => sum + Number(utxo.value ?? 0),
+    0
+  );
+  const fee = estimateFee(confirmedUtxos.length, 1, feeRate);
+  const maxSendSats = totalInputs - fee;
+  if (maxSendSats <= 0) {
+    throw new Error("This donation wallet does not have enough confirmed funds to cover the fee.");
+  }
+  return maxSendSats;
+}
 function scheduleNextCycle(delayMs = null) {
   if (!donationRuntimeState.enabled) {
     return;
@@ -19783,6 +20173,7 @@ async function runDonationExecutionCycle() {
         return;
       }
       if (!txStatusResult.data?.confirmed) {
+        void refetchWalletData({ followUpMs: SEND_REFETCH_DELAY_MS });
         renderExecutionStatus(
           `Donation wallet is running... waiting for confirmation on ${donationRuntimeState.pendingTxId.slice(0, 12)}...`,
           true
@@ -19790,10 +20181,7 @@ async function runDonationExecutionCycle() {
         return;
       }
       donationRuntimeState.pendingTxId = "";
-      await Promise.all([
-        updateWalletBalance(unlockedWalletState.address),
-        renderWalletActivity(unlockedWalletState.address)
-      ]);
+      await refetchWalletData({ followUpMs: SEND_REFETCH_DELAY_MS });
     }
     const reserveResult = await reserveDonationRequests(
       unlockedWalletState.address,
@@ -19833,10 +20221,7 @@ async function runDonationExecutionCycle() {
       return;
     }
     donationRuntimeState.pendingTxId = String(submitResult.data?.txid ?? "");
-    await Promise.all([
-      updateWalletBalance(unlockedWalletState.address),
-      renderWalletActivity(unlockedWalletState.address)
-    ]);
+    await refetchWalletData({ followUpMs: SEND_REFETCH_DELAY_MS });
     renderExecutionStatus(
       `Donation wallet is running... submitted ${donationRuntimeState.pendingTxId.slice(0, 12)}...`,
       true
@@ -19879,7 +20264,7 @@ async function saveWalletFromPendingMnemonic() {
   if (!validatePendingPassword()) {
     return;
   }
-  if (!validateConfirmationInputs()) {
+  if (pendingWalletMode === "create" && !validateConfirmationInputs()) {
     setMessage("The mnemonic confirmation words did not match.", "error");
     return;
   }
@@ -19890,6 +20275,7 @@ async function saveWalletFromPendingMnemonic() {
     network: appConfig.network,
     maxRequestsPerTx: 1,
     feeRateSatPerVbyte: Number(appConfig?.donations?.feeRateSatPerVbyte ?? 2) || 2,
+    graffiti: "",
     ...encrypted,
     address: wallet.address,
     derivationPath: wallet.derivationPath,
@@ -19923,23 +20309,20 @@ async function renderUnlockedWallet(addressOverride) {
   setFeeRateInputValue(
     storedWallet?.feeRateSatPerVbyte ?? appConfig?.donations?.feeRateSatPerVbyte ?? 2
   );
+  setGraffitiInputValue(storedWallet?.graffiti ?? "");
   setMaxRequestsEditing(false);
   setFeeRateEditing(false);
+  setGraffitiEditing(false);
+  updateGraffitiThresholdNote();
   renderExecutionStatus("Donation wallet is stopped.", false);
-  await Promise.all([
-    updateWalletBalance(address),
-    renderWalletActivity(address)
-  ]);
+  await refetchWalletData();
   clearWalletAutoRefresh();
   walletAutoRefreshIntervalId = window.setInterval(() => {
     if (!unlockedWalletState) {
       clearWalletAutoRefresh();
       return;
     }
-    void Promise.all([
-      updateWalletBalance(unlockedWalletState.address),
-      renderWalletActivity(unlockedWalletState.address)
-    ]);
+    void refetchWalletData();
   }, WALLET_AUTO_REFRESH_MS);
   setMessage("", "");
   showSection("wallet");
@@ -19948,18 +20331,9 @@ async function renderUnlockedWallet(addressOverride) {
   }
 }
 async function unlockStoredWallet(password) {
-  const storedWallet = getStoredWallet();
+  const { wallet: storedWallet } = getUnlockSourceWalletInfo();
   if (!storedWallet) {
     showSection("onboarding");
-    return;
-  }
-  if (!isStoredWalletCompatible(storedWallet)) {
-    setMessage(
-      `This donation wallet was saved for ${storedWallet.network}. Switch the backend network back or delete the saved wallet first.`,
-      "error"
-    );
-    showSection("locked");
-    window.history.replaceState(null, "", DONATE_HASHES.unlockWallet);
     return;
   }
   try {
@@ -19970,6 +20344,12 @@ async function unlockStoredWallet(password) {
     }
     const wallet = deriveWallet(mnemonic);
     unlockedWalletState = wallet;
+    storeWallet({
+      ...storedWallet,
+      network: appConfig.network,
+      address: wallet.address,
+      derivationPath: wallet.derivationPath
+    });
     await renderUnlockedWallet(wallet.address);
   } catch {
     setMessage("Unable to unlock the donation wallet with that password.", "error");
@@ -19979,17 +20359,18 @@ async function unlockStoredWallet(password) {
 function renderLockedState() {
   const deleteButton = $("[data-delete-wallet]");
   const addressNode = $("[data-locked-address]");
-  const storedWallet = getStoredWallet();
+  const unlockSource = getUnlockSourceWalletInfo();
+  const storedWallet = unlockSource.wallet;
   if (addressNode) {
-    addressNode.textContent = storedWallet?.address ?? "";
+    addressNode.textContent = unlockSource.isCurrentNetwork ? storedWallet?.address ?? "" : "";
   }
   if (deleteButton) {
     deleteButton.hidden = appConfig?.network !== "regtest";
   }
-  if (storedWallet && !isStoredWalletCompatible(storedWallet)) {
+  if (storedWallet && !unlockSource.isCurrentNetwork) {
     setMessage(
-      `This donation wallet was saved for ${storedWallet.network}. Switch the backend network back or delete the saved wallet first.`,
-      "error"
+      `Unlock this donation wallet to load its ${NETWORK_CONFIG[appConfig.network].label} address.`,
+      ""
     );
   } else {
     setMessage("", "");
@@ -19999,11 +20380,20 @@ function renderLockedState() {
 }
 function applyHashRoute() {
   const hash = getCurrentHash();
-  const hasStoredWallet = Boolean(getStoredWallet());
+  const hasStoredWallet = Boolean(getUnlockSourceWalletInfo().wallet);
   const hasPendingMnemonic = Boolean(pendingMnemonic);
   if (hash === DONATE_HASHES.importWallet) {
     setMessage("", "");
     showSection("import");
+    syncImportStepState();
+    return;
+  }
+  if (hash === DONATE_HASHES.importPassword) {
+    if (!hasPendingMnemonic || pendingWalletMode !== "import") {
+      setHash(DONATE_HASHES.importWallet);
+      return;
+    }
+    showCreateWalletStep("password");
     return;
   }
   if (hash === DONATE_HASHES.createPassword) {
@@ -20019,12 +20409,20 @@ function applyHashRoute() {
       setHash(DONATE_HASHES.onboarding);
       return;
     }
+    if (pendingWalletMode !== "create") {
+      setHash(DONATE_HASHES.importPassword);
+      return;
+    }
     showCreateWalletStep("mnemonic");
     return;
   }
   if (hash === DONATE_HASHES.createWords) {
     if (!hasPendingMnemonic) {
       setHash(DONATE_HASHES.onboarding);
+      return;
+    }
+    if (pendingWalletMode !== "create") {
+      setHash(DONATE_HASHES.importPassword);
       return;
     }
     showCreateWalletStep("words");
@@ -20046,7 +20444,7 @@ function applyHashRoute() {
   showSection("onboarding");
 }
 async function initDonatePage() {
-  const configResult = await getAppConfig();
+  const configResult = await getRuntimeConfig();
   if (!configResult.ok) {
     setMessage("Unable to load app configuration.", "error");
     showSection("onboarding");
@@ -20071,11 +20469,16 @@ async function initDonatePage() {
   const saveMaxRequestsButton = $("[data-save-max-requests]");
   const editFeeRateButton = $("[data-edit-fee-rate]");
   const saveFeeRateButton = $("[data-save-fee-rate]");
+  const graffitiInput = $("[data-graffiti-input]");
+  const editGraffitiButton = $("[data-edit-graffiti]");
+  const saveGraffitiButton = $("[data-save-graffiti]");
   const activityPrevButton = $("[data-wallet-activity-prev]");
   const activityNextButton = $("[data-wallet-activity-next]");
   const sendButton = $("[data-send-wallet]");
+  const sendMaxButton = $("[data-send-max]");
   const sendAddressInput = $("[data-send-address]");
   const sendAmountInput = $("[data-send-amount]");
+  const feeRateInput = $("[data-fee-rate-input]");
   const passwordInput = $("[data-wallet-password]");
   const confirmPasswordInput = $("[data-wallet-password-confirm]");
   const importMnemonicInput = $("[data-import-mnemonic]");
@@ -20084,6 +20487,12 @@ async function initDonatePage() {
   confirmPasswordInput?.addEventListener("input", syncPasswordStepState);
   passwordInput?.addEventListener("keydown", handlePasswordStepSubmit);
   confirmPasswordInput?.addEventListener("keydown", handlePasswordStepSubmit);
+  importMnemonicInput?.addEventListener("input", syncImportStepState);
+  importMnemonicInput?.addEventListener("change", syncImportStepState);
+  importMnemonicInput?.addEventListener("keyup", syncImportStepState);
+  importMnemonicInput?.addEventListener("paste", () => {
+    window.setTimeout(syncImportStepState, 0);
+  });
   importMnemonicInput?.addEventListener(
     "keydown",
     (event) => handleEnterSubmit(event, "[data-import-wallet]")
@@ -20092,25 +20501,36 @@ async function initDonatePage() {
     "keydown",
     (event) => handleEnterSubmit(event, "[data-unlock-wallet]")
   );
+  graffitiInput?.addEventListener(
+    "keydown",
+    (event) => handleEnterSubmit(event, "[data-save-graffiti]")
+  );
+  sendAddressInput?.addEventListener("input", updateSendControls);
+  sendAmountInput?.addEventListener("input", updateSendControls);
+  feeRateInput?.addEventListener("input", updateSendControls);
   createButton?.addEventListener("click", () => {
-    prepareMnemonicFlow(generateMnemonic(wordlist, 128));
+    prepareMnemonicFlow(generateMnemonic(wordlist, 128), "create");
   });
   revealImportButton?.addEventListener("click", () => {
     setHash(DONATE_HASHES.importWallet);
   });
   importButton?.addEventListener("click", () => {
-    const mnemonic = String($("[data-import-mnemonic]")?.value ?? "").trim().toLowerCase().replace(/\s+/g, " ");
+    const mnemonic = normalizeMnemonicInput($("[data-import-mnemonic]")?.value ?? "");
     if (!validateMnemonic(mnemonic, wordlist)) {
       setMessage("Please enter a valid BIP39 mnemonic phrase.", "error");
       return;
     }
-    prepareMnemonicFlow(mnemonic);
+    prepareMnemonicFlow(mnemonic, "import");
   });
   importCancelButton?.addEventListener("click", () => {
     setHash(DONATE_HASHES.onboarding);
   });
-  confirmNextButton?.addEventListener("click", () => {
+  confirmNextButton?.addEventListener("click", async () => {
     if (!validatePendingPassword()) {
+      return;
+    }
+    if (pendingWalletMode !== "create") {
+      await saveWalletFromPendingMnemonic();
       return;
     }
     setMessage("", "");
@@ -20126,11 +20546,14 @@ async function initDonatePage() {
         setHash(DONATE_HASHES.createMnemonic);
         return;
       }
-      setHash(DONATE_HASHES.createPassword);
+      setHash(
+        pendingWalletMode === "create" ? DONATE_HASHES.createPassword : DONATE_HASHES.importWallet
+      );
     });
   }
   confirmCancelButton?.addEventListener("click", () => {
     pendingMnemonic = "";
+    pendingWalletMode = "create";
     confirmationIndexes = [];
     clearUnlockedWalletRuntime();
     setMessage("", "");
@@ -20161,6 +20584,24 @@ async function initDonatePage() {
     updateStoredWallet({ feeRateSatPerVbyte });
     setFeeRateInputValue(feeRateSatPerVbyte);
     setFeeRateEditing(false);
+    updateSendControls();
+  });
+  editGraffitiButton?.addEventListener("click", () => {
+    setGraffitiEditing(true);
+  });
+  saveGraffitiButton?.addEventListener("click", () => {
+    const graffiti = getGraffitiValue();
+    if ([...graffiti].length > GRAFFITI_MAX_LENGTH) {
+      setMessage(`Graffiti must be ${GRAFFITI_MAX_LENGTH} characters or fewer.`, "error");
+      return;
+    }
+    updateStoredWallet({ graffiti });
+    setGraffitiInputValue(graffiti);
+    setGraffitiEditing(false);
+    if (donationRuntimeState.enabled) {
+      donationRuntimeState.lastHeartbeatAt = 0;
+    }
+    setMessage("", "");
   });
   activityPrevButton?.addEventListener("click", () => {
     if (walletActivityPage <= 1) {
@@ -20196,9 +20637,23 @@ async function initDonatePage() {
     "keydown",
     (event) => handleEnterSubmit(event, "[data-send-wallet]")
   );
+  sendMaxButton?.addEventListener("click", async () => {
+    setSendStatus("", "");
+    try {
+      const maxSendSats = await calculateMaxSendAmountSats();
+      setSendAmountInputValueFromSats(maxSendSats);
+      updateSendControls();
+      await refetchWalletData({ followUpMs: SEND_REFETCH_DELAY_MS });
+    } catch (error) {
+      setSendStatus(
+        error instanceof Error ? error.message : "Unable to calculate the max send amount.",
+        "error"
+      );
+    }
+  });
   sendButton?.addEventListener("click", async () => {
     const destinationAddress = String(sendAddressInput?.value ?? "").trim();
-    const amountSats = Number(sendAmountInput?.value ?? 0);
+    const amountSats = getSendAmountSats();
     setSendStatus("", "");
     if (!unlockedWalletState) {
       setSendStatus("Unlock the donation wallet first.", "error");
@@ -20208,11 +20663,18 @@ async function initDonatePage() {
       setSendStatus("Enter a valid address for the current network.", "error");
       return;
     }
-    if (!Number.isInteger(amountSats) || amountSats <= 0) {
-      setSendStatus("Enter a valid amount in sats.", "error");
+    if (!Number.isInteger(amountSats) || Number(amountSats) <= 0) {
+      setSendStatus(`Enter a valid amount in ${getCoinLabel()}.`, "error");
+      return;
+    }
+    if (getValidatedFeeRateSatPerVbyte() == null) {
+      setSendStatus("Enter a valid sats/vbyte fee rate.", "error");
       return;
     }
     sendButton.disabled = true;
+    if (sendMaxButton) {
+      sendMaxButton.disabled = true;
+    }
     try {
       const transaction = await buildSendTransaction(destinationAddress, amountSats);
       const result = await sendDonationTransaction(
@@ -20223,24 +20685,26 @@ async function initDonatePage() {
         setSendStatus("The transaction could not be broadcast.", "error");
         return;
       }
-      setSendStatus(`Sent. ${result.data?.txid ?? ""}`, "success");
+      setSendStatusWithTxLink(
+        "Sent.",
+        String(result.data?.txid ?? ""),
+        result.data?.explorerUrl ?? ""
+      );
       if (sendAddressInput) {
         sendAddressInput.value = "";
       }
       if (sendAmountInput) {
         sendAmountInput.value = "";
       }
-      await Promise.all([
-        updateWalletBalance(unlockedWalletState.address),
-        renderWalletActivity(unlockedWalletState.address)
-      ]);
+      updateSendControls();
+      await refetchWalletData({ followUpMs: SEND_REFETCH_DELAY_MS });
     } catch (error) {
       setSendStatus(
         error instanceof Error ? error.message : "Unable to send from this wallet.",
         "error"
       );
     } finally {
-      sendButton.disabled = false;
+      updateSendControls();
     }
   });
   lockButton?.addEventListener("click", () => {
@@ -20259,6 +20723,7 @@ async function initDonatePage() {
     stopDonationLoop();
     clearWallet();
     pendingMnemonic = "";
+    pendingWalletMode = "create";
     confirmationIndexes = [];
     clearUnlockedWalletRuntime();
     setMessage("", "");
@@ -20268,7 +20733,10 @@ async function initDonatePage() {
   window.addEventListener("beforeunload", () => {
     clearScheduledCycle();
     clearWalletAutoRefresh();
+    clearWalletDataRefetchTimeout();
   });
+  syncImportStepState();
+  updateSendControls();
   applyHashRoute();
 }
 export {
