@@ -104,7 +104,7 @@
           <h2>Donate to the Faucet</h2>
           <p><b>This faucet does not use a centralized donation wallet.</b> Donors send BTC directly to queued faucet participants, so before you can donate you need a wallet that stays under your control.</p>
           <h3>How It Works</h3>
-          <p><b>1.</b> Create a new donation wallet here.</p>
+          <p><b>1.</b> Create a new donation wallet here, or import an existing mnemonic phrase.</p>
           <p><b>2.</b> Deposit BTC into that donation wallet. This is the wallet the faucet will use when it sends funds to approved participants.</p>
           <p><b>3.</b> When donating is enabled, your browser will use that donation wallet to construct and submit transactions directly to queued faucet requests.</p>
           <p><b>4.</b> Your mnemonic phrase is encrypted locally with your password, and each time you reload the page you unlock the donation wallet again with that password.</p>
@@ -123,7 +123,6 @@
         <div data-donate-section="import" hidden>
           <h2>Import Donation Wallet</h2>
           <p>Paste your mnemonic phrase below to import an existing donation wallet into this browser.</p>
-          <b>DO NOT PASTE YOUR PERSONAL WALLET'S MNEMONIC PHRASE!!! ONLY USE THIS AS A BACKUP IF YOU CREATED A WALLET IN THE FAUCET</b>
           <label for="importMnemonic">Mnemonic Phrase</label>
           <textarea id="importMnemonic" data-import-mnemonic></textarea>
           <div class="step-actions">
@@ -177,6 +176,7 @@
             <p><b>Network:</b> <span data-donation-network></span></p>
             <p><b>Address:</b> <code data-donation-address></code></p>
             <p><b>Balance:</b> <span data-donation-balance></span></p>
+            <p><b>Reputation:</b> <span data-donor-reputation>0</span></p>
           </div>
           <div class="wallet-controls">
             <p class="status-line">
